@@ -1,0 +1,9 @@
+H:\work\project18a>TryJson>javac -cp javax.json-1.1.4.jar TryJson.java
+
+H:\work\project18a>TryJson>java -cp .;javax.json-1.1.4.jar TryJson
+Adam: The first Mesage
+-----------
+Bob: The Second Message
+-----------
+
+H:\work\project18a>TryJson>

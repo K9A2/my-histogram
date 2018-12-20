@@ -1,0 +1,10 @@
+Java API for JSON Processing: An Introduction to JSON
+https://www.oracle.com/technetwork/articles/java/json-1973242.html
+
+
+Download javax.json JAR file with all dependencies
+https://jar-download.com/artifacts/org.glassfish/javax.json/1.1.4
+
+JSR 374 (JSON Processing) Default Provider 1.1.4 API
+https://javadoc.io/doc/org.glassfish/javax.json/1.1.4
+
