@@ -8,7 +8,7 @@
 </head><body>
 
 <p />
-<h1>HistogramA.java</h1>
+<h1>main.HistogramA.java</h1>
 <p />
 
 <div align="left" class="java">
@@ -19,7 +19,7 @@
     <code>
 <font color="#808080">001</font>&nbsp;<font color="#7f0055"><b>import&nbsp;</b></font><font color="#000000">java.awt.Color;</font><br />
 <font color="#808080">002</font>&nbsp;<font color="#7f0055"><b>import&nbsp;</b></font><font color="#000000">java.awt.Font;</font><br />
-<font color="#808080">003</font>&nbsp;<font color="#7f0055"><b>class&nbsp;</b></font><font color="#000000">Canvas&nbsp;</font><font color="#000000">{</font><br />
+<font color="#808080">003</font>&nbsp;<font color="#7f0055"><b>class&nbsp;</b></font><font color="#000000">main.HistogramCanvas&nbsp;</font><font color="#000000">{</font><br />
 <font color="#808080">004</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>int&nbsp;</b></font><font color="#000000">x&nbsp;=&nbsp;</font><font color="#990000">512</font><font color="#000000">,&nbsp;y&nbsp;=&nbsp;</font><font color="#990000">512</font><font color="#000000">;</font><br />
 <font color="#808080">005</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>double</b></font><font color="#000000">[]&nbsp;</font><font color="#000000">xScale&nbsp;=&nbsp;</font><font color="#000000">{&nbsp;</font><font color="#990000">0</font><font color="#000000">,&nbsp;</font><font color="#990000">1.0&nbsp;</font><font color="#000000">}</font><font color="#000000">;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;MIN,&nbsp;MAX</font><br />
 <font color="#808080">006</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>double</b></font><font color="#000000">[]&nbsp;</font><font color="#000000">yScale&nbsp;=&nbsp;</font><font color="#000000">{&nbsp;</font><font color="#990000">0</font><font color="#000000">,&nbsp;</font><font color="#990000">1.0&nbsp;</font><font color="#000000">}</font><font color="#000000">;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;MIN,&nbsp;MAX</font><br />
@@ -45,7 +45,7 @@
 <font color="#808080">026</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#000000">Color&nbsp;footerColor&nbsp;=&nbsp;Color.BLACK;</font><br />
 <font color="#808080">027</font>&nbsp;<font color="#000000">}</font><br />
 <font color="#808080">028</font>&nbsp;<font color="#ffffff"></font><br />
-<font color="#808080">029</font>&nbsp;<font color="#7f0055"><b>class&nbsp;</b></font><font color="#000000">HistogramData&nbsp;</font><font color="#000000">{</font><br />
+<font color="#808080">029</font>&nbsp;<font color="#7f0055"><b>class&nbsp;</b></font><font color="#000000">main.HistogramData&nbsp;</font><font color="#000000">{</font><br />
 <font color="#808080">030</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#000000">String&nbsp;header&nbsp;=&nbsp;</font><font color="#2a00ff">&#34;&#34;</font><font color="#000000">;</font><br />
 <font color="#808080">031</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#000000">String&nbsp;footer&nbsp;=&nbsp;</font><font color="#2a00ff">&#34;&#34;</font><font color="#000000">;</font><br />
 <font color="#808080">032</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>double&nbsp;</b></font><font color="#000000">minValue&nbsp;=&nbsp;</font><font color="#990000">0.0</font><font color="#000000">;</font><br />
@@ -53,10 +53,10 @@
 <font color="#808080">034</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>double</b></font><font color="#000000">[]&nbsp;</font><font color="#000000">values&nbsp;=&nbsp;</font><font color="#000000">{&nbsp;}</font><font color="#000000">;</font><br />
 <font color="#808080">035</font>&nbsp;<font color="#000000">}</font><br />
 <font color="#808080">036</font>&nbsp;<font color="#ffffff"></font><br />
-<font color="#808080">037</font>&nbsp;<font color="#7f0055"><b>public&nbsp;class&nbsp;</b></font><font color="#000000">HistogramA&nbsp;</font><font color="#000000">{</font><br />
-<font color="#808080">038</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#000000">Canvas&nbsp;c;</font><br />
+<font color="#808080">037</font>&nbsp;<font color="#7f0055"><b>public&nbsp;class&nbsp;</b></font><font color="#000000">main.HistogramA&nbsp;</font><font color="#000000">{</font><br />
+<font color="#808080">038</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#000000">main.HistogramCanvas&nbsp;c;</font><br />
 <font color="#808080">039</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#000000">Formats&nbsp;f;</font><br />
-<font color="#808080">040</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#000000">HistogramData&nbsp;d;</font><br />
+<font color="#808080">040</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#000000">main.HistogramData&nbsp;d;</font><br />
 <font color="#808080">041</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>double</b></font><font color="#000000">[]&nbsp;</font><font color="#000000">xValue;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;MIN,&nbsp;MAX</font><br />
 <font color="#808080">042</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>double</b></font><font color="#000000">[]&nbsp;</font><font color="#000000">yValue;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;MIN,&nbsp;MAX</font><br />
 <font color="#808080">043</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>double</b></font><font color="#000000">[]&nbsp;</font><font color="#000000">xScale;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;MIN,&nbsp;MAX</font><br />
@@ -64,7 +64,7 @@
 <font color="#808080">045</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>int&nbsp;</b></font><font color="#000000">rulerGrade;&nbsp;&nbsp;&nbsp;</font><br />
 <font color="#808080">046</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>double&nbsp;</b></font><font color="#000000">rulerStep;</font><br />
 <font color="#808080">047</font>&nbsp;<font color="#ffffff"></font><br />
-<font color="#808080">048</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;</b></font><font color="#000000">HistogramA</font><font color="#000000">(</font><font color="#000000">Canvas&nbsp;c,&nbsp;Formats&nbsp;f,&nbsp;HistogramData&nbsp;d</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#808080">048</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;</b></font><font color="#000000">main.HistogramA</font><font color="#000000">(</font><font color="#000000">main.HistogramCanvas&nbsp;c,&nbsp;Formats&nbsp;f,&nbsp;main.HistogramData&nbsp;d</font><font color="#000000">)&nbsp;{</font><br />
 <font color="#808080">049</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>this</b></font><font color="#000000">.c&nbsp;=&nbsp;c;</font><br />
 <font color="#808080">050</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>this</b></font><font color="#000000">.f&nbsp;=&nbsp;f;</font><br />
 <font color="#808080">051</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>this</b></font><font color="#000000">.d&nbsp;=&nbsp;d;</font><br />
@@ -243,7 +243,7 @@
 <font color="#808080">224</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>private&nbsp;final&nbsp;static&nbsp;</b></font><font color="#7f0055"><b>int&nbsp;</b></font><font color="#000000">MIN&nbsp;&nbsp;=&nbsp;</font><font color="#990000">0</font><font color="#000000">;</font><br />
 <font color="#808080">225</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>private&nbsp;final&nbsp;static&nbsp;</b></font><font color="#7f0055"><b>int&nbsp;</b></font><font color="#000000">MAX&nbsp;&nbsp;=&nbsp;</font><font color="#990000">1</font><font color="#000000">;</font><br />
 <font color="#808080">226</font>&nbsp;<font color="#000000">}</font></code>
-    
+
    </td>
   <!-- end source code -->
    </tr>
@@ -255,7 +255,7 @@
 <p /><p /> <hr /> <p /><p />
 
 <p />
-<h1>HistogramATest.java</h1>
+<h1>test.HistogramATest.java</h1>
 <p />
 
 <div align="left" class="java">
@@ -268,56 +268,56 @@
 <font color="#808080">002</font>&nbsp;<font color="#7f0055"><b>import&nbsp;</b></font><font color="#000000">java.io.*;</font><br />
 <font color="#808080">003</font>&nbsp;<font color="#7f0055"><b>import&nbsp;</b></font><font color="#000000">javax.json.*;</font><br />
 <font color="#808080">004</font>&nbsp;<font color="#ffffff"></font><br />
-<font color="#808080">005</font>&nbsp;<font color="#7f0055"><b>public&nbsp;class&nbsp;</b></font><font color="#000000">HistogramATest&nbsp;</font><font color="#000000">{</font><br />
+<font color="#808080">005</font>&nbsp;<font color="#7f0055"><b>public&nbsp;class&nbsp;</b></font><font color="#000000">test.HistogramATest&nbsp;</font><font color="#000000">{</font><br />
 <font color="#808080">006</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;static&nbsp;</b></font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">main</font><font color="#000000">(</font><font color="#000000">String</font><font color="#000000">[]&nbsp;</font><font color="#000000">args</font><font color="#000000">)&nbsp;{</font><br />
-<font color="#808080">007</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">HistogramA&nbsp;h&nbsp;=&nbsp;createHistogramAFrom</font><font color="#000000">(&nbsp;</font><font color="#000000">args</font><font color="#000000">[</font><font color="#990000">0</font><font color="#000000">]&nbsp;)</font><font color="#000000">;</font><br />
+<font color="#808080">007</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">main.HistogramA&nbsp;h&nbsp;=&nbsp;createHistogramAFrom</font><font color="#000000">(&nbsp;</font><font color="#000000">args</font><font color="#000000">[</font><font color="#990000">0</font><font color="#000000">]&nbsp;)</font><font color="#000000">;</font><br />
 <font color="#808080">008</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">h.draw</font><font color="#000000">()</font><font color="#000000">;</font><br />
 <font color="#808080">009</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#000000">}&nbsp;&nbsp;&nbsp;</font><br />
 <font color="#808080">010</font>&nbsp;<font color="#ffffff"></font><br />
-<font color="#808080">011</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>private&nbsp;static&nbsp;</b></font><font color="#000000">HistogramA&nbsp;createHistogramAFrom&nbsp;</font><font color="#000000">(</font><font color="#000000">String&nbsp;fileName</font><font color="#000000">)&nbsp;{</font><br />
-<font color="#808080">012</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">HistogramA&nbsp;h&nbsp;=&nbsp;</font><font color="#7f0055"><b>null</b></font><font color="#000000">;</font><br />
+<font color="#808080">011</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>private&nbsp;static&nbsp;</b></font><font color="#000000">main.HistogramA&nbsp;createHistogramAFrom&nbsp;</font><font color="#000000">(</font><font color="#000000">String&nbsp;fileName</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#808080">012</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">main.HistogramA&nbsp;h&nbsp;=&nbsp;</font><font color="#7f0055"><b>null</b></font><font color="#000000">;</font><br />
 <font color="#808080">013</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>try&nbsp;</b></font><font color="#000000">(</font><br />
 <font color="#808080">014</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">InputStream&nbsp;is&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">FileInputStream</font><font color="#000000">(&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">File</font><font color="#000000">(&nbsp;</font><font color="#000000">fileName&nbsp;</font><font color="#000000">))</font><font color="#000000">;</font><br />
 <font color="#808080">015</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">JsonReader&nbsp;rdr&nbsp;=&nbsp;Json.createReader</font><font color="#000000">(</font><font color="#000000">is</font><font color="#000000">)</font><br />
 <font color="#808080">016</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">)&nbsp;{</font><br />
 <font color="#808080">017</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">JsonObject&nbsp;obj&nbsp;=&nbsp;rdr.readObject</font><font color="#000000">()</font><font color="#000000">.getJsonObject</font><font color="#000000">(&nbsp;</font><font color="#2a00ff">&#34;histograma&#34;&nbsp;</font><font color="#000000">)</font><font color="#000000">;</font><br />
-<font color="#808080">018</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">Canvas&nbsp;canvas&nbsp;=&nbsp;getCanvasFrom</font><font color="#000000">(&nbsp;</font><font color="#000000">obj.getJsonObject</font><font color="#000000">(&nbsp;</font><font color="#2a00ff">&#34;canvas&#34;&nbsp;</font><font color="#000000">))</font><font color="#000000">;</font><br />
+<font color="#808080">018</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">main.HistogramCanvas&nbsp;histogramCanvas&nbsp;=&nbsp;getCanvasFrom</font><font color="#000000">(&nbsp;</font><font color="#000000">obj.getJsonObject</font><font color="#000000">(&nbsp;</font><font color="#2a00ff">&#34;histogramCanvas&#34;&nbsp;</font><font color="#000000">))</font><font color="#000000">;</font><br />
 <font color="#808080">019</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">Formats&nbsp;fmts&nbsp;=&nbsp;getFormatsFrom</font><font color="#000000">(&nbsp;</font><font color="#000000">obj.getJsonObject</font><font color="#000000">(&nbsp;</font><font color="#2a00ff">&#34;formats&#34;&nbsp;</font><font color="#000000">))</font><font color="#000000">;</font><br />
-<font color="#808080">020</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">HistogramData&nbsp;data&nbsp;=&nbsp;getDataFrom</font><font color="#000000">(&nbsp;</font><font color="#000000">obj.getJsonObject</font><font color="#000000">(&nbsp;</font><font color="#2a00ff">&#34;data&#34;&nbsp;</font><font color="#000000">))</font><font color="#000000">;</font><br />
-<font color="#808080">021</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">h&nbsp;=&nbsp;&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">HistogramA</font><font color="#000000">(&nbsp;</font><font color="#000000">canvas,&nbsp;fmts,&nbsp;data</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">020</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">main.HistogramData&nbsp;data&nbsp;=&nbsp;getDataFrom</font><font color="#000000">(&nbsp;</font><font color="#000000">obj.getJsonObject</font><font color="#000000">(&nbsp;</font><font color="#2a00ff">&#34;data&#34;&nbsp;</font><font color="#000000">))</font><font color="#000000">;</font><br />
+<font color="#808080">021</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">h&nbsp;=&nbsp;&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">main.HistogramA</font><font color="#000000">(&nbsp;</font><font color="#000000">histogramCanvas,&nbsp;fmts,&nbsp;data</font><font color="#000000">)</font><font color="#000000">;</font><br />
 <font color="#808080">022</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#7f0055"><b>catch&nbsp;</b></font><font color="#000000">(</font><font color="#000000">IOException&nbsp;e</font><font color="#000000">)&nbsp;{</font><br />
 <font color="#808080">023</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">System.out.println</font><font color="#000000">(&nbsp;</font><font color="#000000">e.getMessage</font><font color="#000000">())</font><font color="#000000">;</font><br />
 <font color="#808080">024</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><font color="#000000">;</font><br />
 <font color="#808080">025</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>return&nbsp;</b></font><font color="#000000">h;</font><br />
 <font color="#808080">026</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#000000">}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><br />
 <font color="#808080">027</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><br />
-<font color="#808080">028</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>private&nbsp;static&nbsp;</b></font><font color="#000000">Canvas&nbsp;getCanvasFrom</font><font color="#000000">(&nbsp;</font><font color="#000000">JsonObject&nbsp;obj</font><font color="#000000">)&nbsp;{</font><br />
-<font color="#808080">029</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">Canvas&nbsp;canvas&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">Canvas</font><font color="#000000">()</font><font color="#000000">;</font><br />
+<font color="#808080">028</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>private&nbsp;static&nbsp;</b></font><font color="#000000">main.HistogramCanvas&nbsp;getCanvasFrom</font><font color="#000000">(&nbsp;</font><font color="#000000">JsonObject&nbsp;obj</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#808080">029</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">main.HistogramCanvas&nbsp;histogramCanvas&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">main.HistogramCanvas</font><font color="#000000">()</font><font color="#000000">;</font><br />
 <font color="#808080">030</font>&nbsp;<font color="#ffffff"></font><br />
 <font color="#808080">031</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">JsonArray&nbsp;szArray&nbsp;=&nbsp;obj.getJsonArray</font><font color="#000000">(&nbsp;</font><font color="#2a00ff">&#34;size&#34;&nbsp;</font><font color="#000000">)</font><font color="#000000">;</font><br />
 <font color="#808080">032</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>if&nbsp;</b></font><font color="#000000">(</font><font color="#000000">szArray&nbsp;!=&nbsp;</font><font color="#7f0055"><b>null&nbsp;</b></font><font color="#000000">)&nbsp;{&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;otherwise,&nbsp;use&nbsp;the&nbsp;default&nbsp;size</font><br />
 <font color="#808080">033</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>int</b></font><font color="#000000">[]&nbsp;</font><font color="#000000">size&nbsp;=&nbsp;toIntArray</font><font color="#000000">(&nbsp;</font><font color="#000000">szArray</font><font color="#000000">)</font><font color="#000000">;</font><br />
-<font color="#808080">034</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">canvas.x&nbsp;=&nbsp;size</font><font color="#000000">[</font><font color="#990000">0</font><font color="#000000">]</font><font color="#000000">;&nbsp;</font><br />
-<font color="#808080">035</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">canvas.y&nbsp;=&nbsp;size</font><font color="#000000">[</font><font color="#990000">1</font><font color="#000000">]</font><font color="#000000">;</font><br />
+<font color="#808080">034</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">histogramCanvas.x&nbsp;=&nbsp;size</font><font color="#000000">[</font><font color="#990000">0</font><font color="#000000">]</font><font color="#000000">;&nbsp;</font><br />
+<font color="#808080">035</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">histogramCanvas.y&nbsp;=&nbsp;size</font><font color="#000000">[</font><font color="#990000">1</font><font color="#000000">]</font><font color="#000000">;</font><br />
 <font color="#808080">036</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><br />
 <font color="#808080">037</font>&nbsp;<font color="#ffffff"></font><br />
 <font color="#808080">038</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">JsonArray&nbsp;xsArray&nbsp;=&nbsp;obj.getJsonArray</font><font color="#000000">(&nbsp;</font><font color="#2a00ff">&#34;xscale&#34;&nbsp;</font><font color="#000000">)</font><font color="#000000">;</font><br />
 <font color="#808080">039</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>if&nbsp;</b></font><font color="#000000">(</font><font color="#000000">xsArray&nbsp;!=&nbsp;</font><font color="#7f0055"><b>null&nbsp;</b></font><font color="#000000">)&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;otherwise,&nbsp;use&nbsp;the&nbsp;default&nbsp;xScale</font><br />
-<font color="#808080">040</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">canvas.xScale&nbsp;=&nbsp;toDoubleArray</font><font color="#000000">(&nbsp;</font><font color="#000000">xsArray&nbsp;</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">040</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">histogramCanvas.xScale&nbsp;=&nbsp;toDoubleArray</font><font color="#000000">(&nbsp;</font><font color="#000000">xsArray&nbsp;</font><font color="#000000">)</font><font color="#000000">;</font><br />
 <font color="#808080">041</font>&nbsp;<font color="#ffffff"></font><br />
 <font color="#808080">042</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">JsonArray&nbsp;ysArray&nbsp;=&nbsp;obj.getJsonArray</font><font color="#000000">(&nbsp;</font><font color="#2a00ff">&#34;yscale&#34;&nbsp;</font><font color="#000000">)</font><font color="#000000">;</font><br />
 <font color="#808080">043</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>if&nbsp;</b></font><font color="#000000">(</font><font color="#000000">ysArray&nbsp;!=&nbsp;</font><font color="#7f0055"><b>null&nbsp;</b></font><font color="#000000">)&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;otherwise,&nbsp;use&nbsp;the&nbsp;default&nbsp;yScale</font><br />
-<font color="#808080">044</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">canvas.yScale&nbsp;=&nbsp;toDoubleArray</font><font color="#000000">(&nbsp;</font><font color="#000000">ysArray&nbsp;</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">044</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">histogramCanvas.yScale&nbsp;=&nbsp;toDoubleArray</font><font color="#000000">(&nbsp;</font><font color="#000000">ysArray&nbsp;</font><font color="#000000">)</font><font color="#000000">;</font><br />
 <font color="#808080">045</font>&nbsp;<font color="#ffffff"></font><br />
 <font color="#808080">046</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">JsonArray&nbsp;bgcArray&nbsp;=&nbsp;obj.getJsonArray</font><font color="#000000">(&nbsp;</font><font color="#2a00ff">&#34;bgcolor&#34;</font><font color="#000000">)</font><font color="#000000">;</font><br />
 <font color="#808080">047</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>if&nbsp;</b></font><font color="#000000">(</font><font color="#000000">bgcArray&nbsp;!=&nbsp;</font><font color="#7f0055"><b>null&nbsp;</b></font><font color="#000000">)&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;otherwise,&nbsp;use&nbsp;the&nbsp;default&nbsp;bgColor</font><br />
-<font color="#808080">048</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">canvas.bgColor&nbsp;=&nbsp;getColorFrom</font><font color="#000000">(&nbsp;</font><font color="#000000">bgcArray&nbsp;</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">048</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">histogramCanvas.bgColor&nbsp;=&nbsp;getColorFrom</font><font color="#000000">(&nbsp;</font><font color="#000000">bgcArray&nbsp;</font><font color="#000000">)</font><font color="#000000">;</font><br />
 <font color="#808080">049</font>&nbsp;<font color="#ffffff"></font><br />
 <font color="#808080">050</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">JsonArray&nbsp;cArray&nbsp;=&nbsp;obj.getJsonArray</font><font color="#000000">(&nbsp;</font><font color="#2a00ff">&#34;color&#34;</font><font color="#000000">)</font><font color="#000000">;</font><br />
 <font color="#808080">051</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>if&nbsp;</b></font><font color="#000000">(</font><font color="#000000">cArray&nbsp;!=&nbsp;</font><font color="#7f0055"><b>null&nbsp;</b></font><font color="#000000">)&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;otherwise,&nbsp;use&nbsp;the&nbsp;default&nbsp;color</font><br />
-<font color="#808080">052</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">canvas.color&nbsp;=&nbsp;getColorFrom</font><font color="#000000">(&nbsp;</font><font color="#000000">cArray&nbsp;</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">052</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">histogramCanvas.color&nbsp;=&nbsp;getColorFrom</font><font color="#000000">(&nbsp;</font><font color="#000000">cArray&nbsp;</font><font color="#000000">)</font><font color="#000000">;</font><br />
 <font color="#808080">053</font>&nbsp;<font color="#ffffff"></font><br />
-<font color="#808080">054</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>return&nbsp;</b></font><font color="#000000">canvas;</font><br />
+<font color="#808080">054</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>return&nbsp;</b></font><font color="#000000">histogramCanvas;</font><br />
 <font color="#808080">055</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
 <font color="#808080">056</font>&nbsp;<font color="#ffffff"></font><br />
 <font color="#808080">057</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>private&nbsp;static&nbsp;</b></font><font color="#7f0055"><b>int</b></font><font color="#000000">[]&nbsp;</font><font color="#000000">toIntArray&nbsp;</font><font color="#000000">(</font><font color="#000000">JsonArray&nbsp;jsa</font><font color="#000000">)&nbsp;{</font><br />
@@ -366,8 +366,8 @@
 <font color="#808080">100</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>return&nbsp;</b></font><font color="#000000">fmts;</font><br />
 <font color="#808080">101</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
 <font color="#808080">102</font>&nbsp;<font color="#ffffff"></font><br />
-<font color="#808080">103</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>private&nbsp;static&nbsp;</b></font><font color="#000000">HistogramData&nbsp;getDataFrom</font><font color="#000000">(&nbsp;</font><font color="#000000">JsonObject&nbsp;obj</font><font color="#000000">)&nbsp;{</font><br />
-<font color="#808080">104</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">HistogramData&nbsp;data&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">HistogramData</font><font color="#000000">()</font><font color="#000000">;</font><br />
+<font color="#808080">103</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>private&nbsp;static&nbsp;</b></font><font color="#000000">main.HistogramData&nbsp;getDataFrom</font><font color="#000000">(&nbsp;</font><font color="#000000">JsonObject&nbsp;obj</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#808080">104</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">main.HistogramData&nbsp;data&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">main.HistogramData</font><font color="#000000">()</font><font color="#000000">;</font><br />
 <font color="#808080">105</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">data.header&nbsp;=&nbsp;obj.getString</font><font color="#000000">(&nbsp;</font><font color="#2a00ff">&#34;header&#34;</font><font color="#000000">,&nbsp;</font><font color="#2a00ff">&#34;&#34;</font><font color="#000000">)</font><font color="#000000">;</font><br />
 <font color="#808080">106</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">data.footer&nbsp;=&nbsp;obj.getString</font><font color="#000000">(&nbsp;</font><font color="#2a00ff">&#34;footer&#34;</font><font color="#000000">,&nbsp;</font><font color="#2a00ff">&#34;&#34;</font><font color="#000000">)</font><font color="#000000">;</font><br />
 <font color="#808080">107</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">data.minValue&nbsp;=&nbsp;obj.getJsonNumber</font><font color="#000000">(&nbsp;</font><font color="#2a00ff">&#34;minvalue&#34;</font><font color="#000000">)</font><font color="#000000">.doubleValue</font><font color="#000000">()</font><font color="#000000">;&nbsp;</font><font color="#3f7f5f">//&nbsp;TODO&nbsp;for&nbsp;default&nbsp;value</font><br />
@@ -376,7 +376,7 @@
 <font color="#808080">110</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>return&nbsp;</b></font><font color="#000000">data;</font><br />
 <font color="#808080">111</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
 <font color="#808080">112</font>&nbsp;<font color="#000000">}</font></code>
-    
+
    </td>
   <!-- end source code -->
    </tr>
@@ -407,7 +407,7 @@
     <code>
 <font color="#808080">01</font>&nbsp;<font color="#000000">{</font><br />
 <font color="#808080">02</font>&nbsp;<font color="#2a00ff">&#34;histograma&#34;&nbsp;</font><font color="#000000">:&nbsp;</font><font color="#000000">{</font><br />
-<font color="#808080">03</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#2a00ff">&#34;canvas&#34;&nbsp;</font><font color="#000000">:&nbsp;</font><font color="#000000">{</font><br />
+<font color="#808080">03</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#2a00ff">&#34;histogramCanvas&#34;&nbsp;</font><font color="#000000">:&nbsp;</font><font color="#000000">{</font><br />
 <font color="#808080">04</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#2a00ff">&#34;size&#34;&nbsp;</font><font color="#000000">:&nbsp;</font><font color="#000000">[</font><font color="#990000">860</font><font color="#000000">,&nbsp;</font><font color="#990000">380</font><font color="#000000">]</font><font color="#000000">,</font><br />
 <font color="#808080">05</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#2a00ff">&#34;xscale&#34;&nbsp;</font><font color="#000000">:&nbsp;</font><font color="#000000">[</font><font color="#990000">0</font><font color="#000000">,&nbsp;</font><font color="#990000">2.0</font><font color="#000000">]</font><font color="#000000">,</font><br />
 <font color="#808080">06</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#2a00ff">&#34;yscale&#34;&nbsp;</font><font color="#000000">:&nbsp;</font><font color="#000000">[</font><font color="#990000">0</font><font color="#000000">,&nbsp;</font><font color="#990000">1.0</font><font color="#000000">]</font><font color="#000000">,&nbsp;</font><br />
@@ -461,7 +461,7 @@
 <font color="#808080">54</font>&nbsp;<font color="#000000">}</font><br />
 <font color="#ffffff"></font><font color="#ffffff">
 </font></code>
-    
+
    </td>
   <!-- end source code -->
    </tr>
@@ -472,7 +472,7 @@
 
 
 <p /><p /> <hr /> <p /><p />
-   
+
 <img src="./images/HistogramA1.draw.png" />
 
 <p /><p /> <hr /> <p /><p />
@@ -490,7 +490,7 @@
     <code>
 <font color="#808080">01</font>&nbsp;<font color="#000000">{</font><br />
 <font color="#808080">02</font>&nbsp;<font color="#2a00ff">&#34;histograma&#34;&nbsp;</font><font color="#000000">:&nbsp;</font><font color="#000000">{</font><br />
-<font color="#808080">03</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#2a00ff">&#34;canvas&#34;&nbsp;</font><font color="#000000">:&nbsp;</font><font color="#000000">{</font><br />
+<font color="#808080">03</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#2a00ff">&#34;histogramCanvas&#34;&nbsp;</font><font color="#000000">:&nbsp;</font><font color="#000000">{</font><br />
 <font color="#808080">04</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#2a00ff">&#34;size&#34;&nbsp;</font><font color="#000000">:&nbsp;</font><font color="#000000">[</font><font color="#990000">1024</font><font color="#000000">,&nbsp;</font><font color="#990000">512</font><font color="#000000">]</font><font color="#000000">,</font><br />
 <font color="#808080">05</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#2a00ff">&#34;xscale&#34;&nbsp;</font><font color="#000000">:&nbsp;</font><font color="#000000">[</font><font color="#990000">0</font><font color="#000000">,&nbsp;</font><font color="#990000">2.0</font><font color="#000000">]</font><font color="#000000">,</font><br />
 <font color="#808080">06</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#2a00ff">&#34;yscale&#34;&nbsp;</font><font color="#000000">:&nbsp;</font><font color="#000000">[</font><font color="#990000">0</font><font color="#000000">,&nbsp;</font><font color="#990000">1.0</font><font color="#000000">]</font><font color="#000000">,&nbsp;</font><br />
@@ -536,7 +536,7 @@
 <font color="#808080">46</font>&nbsp;<font color="#000000">}</font><br />
 <font color="#ffffff"></font><font color="#ffffff">
 </font></code>
-    
+
    </td>
   <!-- end source code -->
    </tr>
@@ -546,7 +546,7 @@
 <!-- ======================================================== -->
 
 <p /><p /> <hr /> <p /><p />
-   
+
 <img src="./images/HistogramA2.draw.png" />
 
 <p /><p /> <hr /> <p /><p />
@@ -563,7 +563,7 @@
     <code>
 <font color="#808080">01</font>&nbsp;<font color="#000000">{</font><br />
 <font color="#808080">02</font>&nbsp;<font color="#2a00ff">&#34;histograma&#34;&nbsp;</font><font color="#000000">:&nbsp;</font><font color="#000000">{</font><br />
-<font color="#808080">03</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#2a00ff">&#34;canvas&#34;&nbsp;</font><font color="#000000">:&nbsp;</font><font color="#000000">{</font><br />
+<font color="#808080">03</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#2a00ff">&#34;histogramCanvas&#34;&nbsp;</font><font color="#000000">:&nbsp;</font><font color="#000000">{</font><br />
 <font color="#808080">04</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#2a00ff">&#34;size&#34;&nbsp;</font><font color="#000000">:&nbsp;</font><font color="#000000">[</font><font color="#990000">700</font><font color="#000000">,&nbsp;</font><font color="#990000">400</font><font color="#000000">]</font><font color="#000000">,</font><br />
 <font color="#808080">05</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#2a00ff">&#34;xscale&#34;&nbsp;</font><font color="#000000">:&nbsp;</font><font color="#000000">[</font><font color="#990000">0</font><font color="#000000">,&nbsp;</font><font color="#990000">2.0</font><font color="#000000">]</font><font color="#000000">,</font><br />
 <font color="#808080">06</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#2a00ff">&#34;yscale&#34;&nbsp;</font><font color="#000000">:&nbsp;</font><font color="#000000">[</font><font color="#990000">0</font><font color="#000000">,&nbsp;</font><font color="#990000">1.0</font><font color="#000000">]</font><font color="#000000">,&nbsp;</font><br />
@@ -607,7 +607,7 @@
 <font color="#808080">44</font>&nbsp;<font color="#000000">}</font><br />
 <font color="#ffffff"></font><font color="#ffffff">
 </font></code>
-    
+
    </td>
   <!-- end source code -->
    </tr>
@@ -616,9 +616,9 @@
 <!-- =       END of automatically generated HTML code       = -->
 <!-- ======================================================== -->
 
-   
+
 <p /><p /> <hr /> <p /><p />
-   
+
 <img src="./images/HistogramA3.draw.png" />
 
 <p /><p /> <hr /> <p /><p />

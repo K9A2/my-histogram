@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="javax.json-1.1.41">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/TaskA_HistogramA/code_HistogramA/javax.json-1.1.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javax.json-1.1.4.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

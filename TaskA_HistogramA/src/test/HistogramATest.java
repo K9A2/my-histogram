@@ -1,77 +1,109 @@
+package test;
+
+import main.HistogramA;
+import main.HistogramCanvas;
+import main.HistogramData;
+import main.HistogramFormat;
+
 import java.awt.Color;
 import java.io.*;
 import javax.json.*;
 
 public class HistogramATest {
-    public static void main(String[] args) {
-        HistogramA h = createHistogramAFrom(args[0]);
-        h.draw();
-    }
 
-    private static HistogramA createHistogramAFrom(String fileName) {
-        HistogramA h = null;
+    /**
+     * Returns a HistogramA instance based on the parameters specified in the
+     * designated JSON file or system default value
+     *
+     * @param fileName the file name of designated JSON file
+     * @return a HistogramA instance
+     */
+    private static HistogramA createHistogramAFromJsonFile(String fileName) {
+
+        HistogramA histogram = null;
+
+        String defaultDataDir = "./data/";
+
+        /* Load data and parameters from designated JSON file */
         try (
-                InputStream is = new FileInputStream(new File(fileName));
-                JsonReader rdr = Json.createReader(is)
+                InputStream is = new FileInputStream(new File(defaultDataDir + fileName));
+                JsonReader reader = Json.createReader(is)
         ) {
-            JsonObject obj = rdr.readObject().getJsonObject("histograma");
-            Canvas canvas = getCanvasFrom(obj.getJsonObject("canvas"));
-            Formats fmts = getFormatsFrom(obj.getJsonObject("formats"));
+            System.out.println("Loading " + defaultDataDir + fileName);
+            JsonObject obj = reader.readObject().getJsonObject("histogram");
+
+            // Retrieve data and parameters
+            HistogramCanvas canvas = getCanvasFrom(obj.getJsonObject("canvas"));
+            HistogramFormat format = getFormatsFrom(obj.getJsonObject("formats"));
             HistogramData data = getDataFrom(obj.getJsonObject("data"));
-            h = new HistogramA(canvas, fmts, data);
+
+            histogram = new HistogramA(canvas, format, data);
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
-        return h;
+
+        return histogram;
     }
 
-    private static Canvas getCanvasFrom(JsonObject obj) {
-        Canvas canvas = new Canvas();
+    private static HistogramCanvas getCanvasFrom(JsonObject obj) {
+        HistogramCanvas canvas = new HistogramCanvas();
 
         JsonArray szArray = obj.getJsonArray("size");
-        if (szArray != null) {  // otherwise, use the default size
+        if (szArray != null) {
+            // otherwise, use the default size
             int[] size = toIntArray(szArray);
             canvas.x = size[0];
             canvas.y = size[1];
         }
 
         JsonArray xsArray = obj.getJsonArray("xscale");
-        if (xsArray != null)  // otherwise, use the default xScale
+        if (xsArray != null) {
+            // otherwise, use the default xScale
             canvas.xScale = toDoubleArray(xsArray);
+        }
 
         JsonArray ysArray = obj.getJsonArray("yscale");
-        if (ysArray != null)  // otherwise, use the default yScale
+        if (ysArray != null) {
+            // otherwise, use the default yScale
             canvas.yScale = toDoubleArray(ysArray);
+        }
 
         JsonArray bgcArray = obj.getJsonArray("bgcolor");
-        if (bgcArray != null)  // otherwise, use the default bgColor
+        if (bgcArray != null) {
+            // otherwise, use the default bgColor
             canvas.bgColor = getColorFrom(bgcArray);
+        }
 
         JsonArray cArray = obj.getJsonArray("color");
-        if (cArray != null)    // otherwise, use the default color
+        if (cArray != null) {
+            // otherwise, use the default color
             canvas.color = getColorFrom(cArray);
+        }
 
         return canvas;
     }
 
     private static int[] toIntArray(JsonArray jsa) {
         int[] a = new int[jsa.size()];
-        for (int i = 0; i < jsa.size(); i++)
+        for (int i = 0; i < jsa.size(); i++) {
             a[i] = jsa.getInt(i);
+        }
         return a;
     }
 
     private static double[] toDoubleArray(JsonArray jsa) {
         double[] a = new double[jsa.size()];
-        for (int i = 0; i < jsa.size(); i++)
+        for (int i = 0; i < jsa.size(); i++) {
             a[i] = jsa.getJsonNumber(i).doubleValue();
+        }
         return a;
     }
 
     private static String[] toStringArray(JsonArray jsa) {
         String[] s = new String[jsa.size()];
-        for (int i = 0; i < jsa.size(); i++)
+        for (int i = 0; i < jsa.size(); i++) {
             s[i] = jsa.getString(i);
+        }
         return s;
     }
 
@@ -80,8 +112,8 @@ public class HistogramATest {
         return new Color(c[0], c[1], c[2]);
     }
 
-    private static Formats getFormatsFrom(JsonObject obj) {  // TODO for default values
-        Formats fmts = new Formats();
+    private static HistogramFormat getFormatsFrom(JsonObject obj) {  // TODO for default values
+        HistogramFormat fmts = new HistogramFormat();
         fmts.margins = toDoubleArray(obj.getJsonArray("margins"));
         fmts.isBarFilled = obj.getBoolean("isbarfilled");
         fmts.barFillColor = getColorFrom(obj.getJsonArray("barfillcolor"));
@@ -109,4 +141,12 @@ public class HistogramATest {
         data.values = toDoubleArray(obj.getJsonArray("values"));
         return data;
     }
+
+    public static void main(String[] args) {
+
+        HistogramA histogram = createHistogramAFromJsonFile(args[0]);
+        histogram.draw();
+
+    }
+
 }

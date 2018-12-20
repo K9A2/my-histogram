@@ -1,7 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5b172cf9-4a96-4209-a5f2-4bbf9653c14d" name="Default Changelist" comment="" />
+    <list default="true" id="5b172cf9-4a96-4209-a5f2-4bbf9653c14d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/TaskA_HistogramA/src/main/HistogramCanvas.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TaskA_HistogramA/src/main/HistogramData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TaskA_HistogramA/src/main/HistogramFormat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/HistogramA1.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/HistogramA2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/HistogramA3.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/javax_json_1_1_4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/javax_json_1_1_4.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/javax_json_1_1_41.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/jdk1_8.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TaskA_HistogramA/HistogramA.html" beforeDir="false" afterPath="$PROJECT_DIR$/TaskA_HistogramA/HistogramA.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TaskA_HistogramA/TaskA_HistogramA.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TaskA_HistogramA/TaskA_HistogramA.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TaskA_HistogramA/code_HistogramA/HistogramA.java" beforeDir="false" afterPath="$PROJECT_DIR$/TaskA_HistogramA/src/main/HistogramA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TaskA_HistogramA/code_HistogramA/HistogramA1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TaskA_HistogramA/code_HistogramA/HistogramA2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TaskA_HistogramA/code_HistogramA/HistogramA3.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TaskA_HistogramA/code_HistogramA/HistogramATest.java" beforeDir="false" afterPath="$PROJECT_DIR$/TaskA_HistogramA/src/test/HistogramATest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TaskA_HistogramA/code_HistogramA/StdDraw.java" beforeDir="false" afterPath="$PROJECT_DIR$/lib/tool_StdDraw/code_StdDraw/StdDraw.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TaskA_HistogramA/code_HistogramA/javax.json-1.1.4.jar" beforeDir="false" afterPath="$PROJECT_DIR$/lib/javax.json-1.1.4.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tool_StdDraw/StdDraw.html" beforeDir="false" afterPath="$PROJECT_DIR$/lib/tool_StdDraw/StdDraw.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tool_StdDraw/code_StdDraw/StdDraw.java" beforeDir="false" afterPath="$PROJECT_DIR$/TaskA_HistogramA/src/util/StdDraw.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tool_StdDraw/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/tool_StdDraw/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tool_StdDraw/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/lib/tool_StdDraw/stylesheet.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tool_StdDraw/tool_StdDraw.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tool_javax.json/TryJson.ReadMe.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/tool_javax.json/TryJson.ReadMe.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tool_javax.json/code_TryJson/TryJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/lib/tool_javax.json/code_TryJson/TryJson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tool_javax.json/code_TryJson/facebook.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/tool_javax.json/code_TryJson/facebook.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tool_javax.json/code_TryJson/javax.json-1.1.4.jar" beforeDir="false" afterPath="$PROJECT_DIR$/lib/tool_javax.json/code_TryJson/javax.json-1.1.4.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tool_javax.json/javax.json_URLs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/tool_javax.json/javax.json_URLs.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tool_javax.json/tool_javax.json.iml" beforeDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,14 +79,50 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="381887561">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="dummy" value="19" />
+          <entry key="java" value="2257" />
+          <entry key="json" value="714" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="2257" />
+          <entry key="JSON" value="714" />
+          <entry key="PLAIN_TEXT" value="19" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="gitignore" value="1" />
+          <entry key="java" value="19" />
+          <entry key="json" value="6" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="19" />
+          <entry key="JSON" value="6" />
+          <entry key="PLAIN_TEXT" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TaskA_HistogramA/code_HistogramA/HistogramA.java">
+        <entry file="file://$PROJECT_DIR$/TaskA_HistogramA/src/main/HistogramA.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
+            <state relative-caret-position="5140">
+              <caret line="237" column="42" selection-start-line="237" selection-start-column="42" selection-end-line="237" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -64,21 +131,74 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/TaskA_HistogramA/code_HistogramA/HistogramATest.java">
+        <entry file="file://$PROJECT_DIR$/TaskA_HistogramA/src/test/HistogramATest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="9" selection-start-line="9" selection-end-line="9" />
+            <state relative-caret-position="299">
+              <caret line="60" column="47" selection-start-line="60" selection-start-column="47" selection-end-line="60" selection-end-column="47" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TaskA_HistogramA/src/main/HistogramCanvas.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="92">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TaskA_HistogramA/src/main/HistogramData.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="161">
+              <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TaskA_HistogramA/src/main/HistogramFormat.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="437">
+              <caret line="19" column="42" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/TaskA_HistogramA/code_HistogramA/HistogramA.java" />
+        <option value="$PROJECT_DIR$/TaskA_HistogramA/code_HistogramA/HistogramA1.json" />
+        <option value="$PROJECT_DIR$/TaskA_HistogramA/code_HistogramA/HistogramA2.json" />
+        <option value="$PROJECT_DIR$/TaskA_HistogramA/code_HistogramA/HistogramA3.json" />
+        <option value="$PROJECT_DIR$/TaskA_HistogramA/code_HistogramA/HistogramData.java" />
+        <option value="$PROJECT_DIR$/TaskA_HistogramA/code_HistogramA/Canvas.java" />
+        <option value="$PROJECT_DIR$/TaskA_HistogramA/code_HistogramA/Format.java" />
+        <option value="$PROJECT_DIR$/TaskA_HistogramA/code_HistogramA/HistogramFormat.java" />
         <option value="$PROJECT_DIR$/TaskA_HistogramA/code_HistogramA/HistogramATest.java" />
+        <option value="$PROJECT_DIR$/TaskA_HistogramA/code_HistogramA/HistogramA.java" />
+        <option value="$PROJECT_DIR$/TaskA_HistogramA/src/main/HistogramFormat.java" />
+        <option value="$PROJECT_DIR$/TaskA_HistogramA/src/util/StdDraw.java" />
+        <option value="$PROJECT_DIR$/TaskA_HistogramA/src/main/HistogramData.java" />
+        <option value="$PROJECT_DIR$/TaskA_HistogramA/src/main/HistogramCanvas.java" />
+        <option value="$PROJECT_DIR$/TaskA_HistogramA/src/main/HistogramA.java" />
+        <option value="$PROJECT_DIR$/TaskA_HistogramA/src/test/HistogramATest.java" />
       </list>
     </option>
   </component>
@@ -93,8 +213,9 @@
     <option name="width" value="1941" />
     <option name="height" value="1050" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
@@ -102,18 +223,45 @@
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
             <path>
-              <item name="PlottingBarsReference" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="my-histogram" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
             </path>
             <path>
-              <item name="PlottingBarsReference" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="my-histogram" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="TaskB_samples" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="data" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
-              <item name="PlottingBarsReference" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="my-histogram" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="TaskC_video" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="lib" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="my-histogram" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="TaskA_HistogramA" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+            </path>
+            <path>
+              <item name="my-histogram" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="TaskA_HistogramA" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="my-histogram" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="TaskA_HistogramA" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="my-histogram" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="TaskA_HistogramA" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="my-histogram" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="TaskA_HistogramA" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="util" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
@@ -123,12 +271,8 @@
         <subPane>
           <expand>
             <path>
-              <item name="PlottingBarsReference" type="b2602c69:ProjectViewProjectNode" />
+              <item name="my-histogram" type="b2602c69:ProjectViewProjectNode" />
               <item name="TaskA_HistogramA" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PlottingBarsReference" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tool_StdDraw" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -138,16 +282,28 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="termina&#9;ACTION&#9;ActivateTerminalToolWindow" />
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="SearchEverywhereHistoryKey" value="ref&#9;ACTION&#9;Refactorings.QuickListPopupAction&#10;refact&#9;ACTION&#9;Refactorings.QuickListPopupAction&#10;termina&#9;ACTION&#9;ActivateTerminalToolWindow" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545312744644" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/TaskB_samples" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545316887270" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/javax.json-1.1.4.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.18983957" />
     <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/TaskA_HistogramA/src/util" />
+      <recent name="$PROJECT_DIR$/lib" />
+      <recent name="$PROJECT_DIR$/TaskA_HistogramA" />
+      <recent name="$PROJECT_DIR$/TaskA_HistogramA/src" />
+      <recent name="$PROJECT_DIR$/data" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -163,10 +319,9 @@
   </component>
   <component name="RunManager">
     <configuration name="JDK 8u181" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="HistogramATest" />
+      <option name="MAIN_CLASS_NAME" value="test.HistogramATest" />
       <module name="TaskA_HistogramA" />
-      <option name="PROGRAM_PARAMETERS" value="HistogramA3.json" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TaskA_HistogramA/code_HistogramA" />
+      <option name="PROGRAM_PARAMETERS" value="HistogramA2.json" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -185,16 +340,18 @@
       <workItem from="1545272819615" duration="444000" />
       <workItem from="1545292313409" duration="2074000" />
       <workItem from="1545311755510" duration="912000" />
+      <workItem from="1545313746661" duration="3163000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3430000" />
+    <option name="totallyTimeSpent" value="6593000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="735" extended-state="6" />
+    <frame x="0" y="25" width="1920" height="1055" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25788197" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15896885" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -202,8 +359,8 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3283582" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32890365" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32779622" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -237,19 +394,6 @@
         <state relative-caret-position="-2601" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TaskA_HistogramA/code_HistogramA/HistogramA1.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TaskA_HistogramA/code_HistogramA/HistogramA3.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TaskA_HistogramA/code_HistogramA/HistogramA2.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/TaskB_samples/barchartstacked4.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -274,20 +418,78 @@
     <entry file="file://$PROJECT_DIR$/TaskA_HistogramA/images/HistogramA1.draw.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/TaskA_HistogramA/code_HistogramA/HistogramA.java">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/HistogramA2.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
+        <state relative-caret-position="897">
+          <caret line="39" column="76" selection-start-line="39" selection-start-column="76" selection-end-line="39" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/HistogramA1.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="586">
+          <caret line="47" column="67" selection-start-line="47" selection-start-column="67" selection-end-line="47" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TaskA_HistogramA/src/util/StdDraw.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TaskA_HistogramA/code_HistogramA/HistogramATest.java">
+    <entry file="file://$PROJECT_DIR$/data/HistogramA3.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        <state relative-caret-position="83">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TaskA_HistogramA/src/main/HistogramA.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5140">
+          <caret line="237" column="42" selection-start-line="237" selection-start-column="42" selection-end-line="237" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TaskA_HistogramA/src/main/HistogramCanvas.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TaskA_HistogramA/src/main/HistogramData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TaskA_HistogramA/src/main/HistogramFormat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="19" column="42" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TaskA_HistogramA/src/test/HistogramATest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="60" column="47" selection-start-line="60" selection-start-column="47" selection-end-line="60" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -349,6 +551,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
@@ -368,7 +571,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>jdk1.8</last-edited>
+          <last-edited>javax.json-1.1.41</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

@@ -1,52 +1,29 @@
-import java.awt.Color;
+package main;
+
+import util.StdDraw;
+
 import java.awt.Font;
 
-class Canvas {
-    int x = 512, y = 512;
-    double[] xScale = {0, 1.0};  // MIN, MAX
-    double[] yScale = {0, 1.0};  // MIN, MAX
-    Color bgColor = Color.WHITE;
-    Color color = Color.BLACK;
-}
-
-class Formats {
-    double[] margins = {0.15, 0.15, 0.1, 0.05};  // NORTH, SOUTH, WEST, EAST
-    boolean isBarFilled = true;
-    Color barFillColor = Color.BLACK;
-    boolean hasBarFrame = true;
-    Color barFrameColor = Color.BLACK;
-    boolean hasBorder = true;
-    Color borderColor = Color.BLACK;
-    Color rulerColor = Color.BLACK;
-    Color rulerMarkColor = Color.BLACK;
-    boolean hasRightRuler = true;
-    Color keyColor = Color.BLACK;
-    boolean hasHeader = true;
-    Color headerColor = Color.BLACK;
-    boolean hasFooter = true;
-    Color footerColor = Color.BLACK;
-}
-
-class HistogramData {
-    String header = "";
-    String footer = "";
-    double minValue = 0.0;
-    String[] keys = {};
-    double[] values = {};
-}
-
 public class HistogramA {
-    Canvas c;
-    Formats f;
-    HistogramData d;
-    double[] xValue;  // MIN, MAX
-    double[] yValue;  // MIN, MAX
-    double[] xScale;  // MIN, MAX
-    double[] yScale;  // MIN, MAX
-    int rulerGrade;
-    double rulerStep;
 
-    public HistogramA(Canvas c, Formats f, HistogramData d) {
+    private HistogramCanvas c;
+    private HistogramFormat f;
+    private HistogramData d;
+    private double[] xValue;  // MIN, MAX
+    private double[] yValue;  // MIN, MAX
+    private double[] xScale;  // MIN, MAX
+    private double[] yScale;  // MIN, MAX
+    private int rulerGrade;
+    private double rulerStep;
+
+    private final static int NORTH = 0;
+    private final static int SOUTH = 1;
+    private final static int WEST = 2;
+    private final static int EAST = 3;
+    private final static int MIN = 0;
+    private final static int MAX = 1;
+
+    public HistogramA(HistogramCanvas c, HistogramFormat f, HistogramData d) {
         this.c = c;
         this.f = f;
         this.d = d;
@@ -65,21 +42,25 @@ public class HistogramA {
         yValue[MIN] = d.minValue;
 
         double max = a[0];
-        for (int i = 1; i < a.length; i++)
-            if (max < a[i]) max = a[i];
+        for (int i = 1; i < a.length; i++) {
+            if (max < a[i]) {
+                max = a[i];
+            }
+        }
 
         double span = max - yValue[MIN];
         double factor = 1.0;
-        if (span >= 1)
+        if (span >= 1) {
             while (span >= 10) {
                 span /= 10;
                 factor *= 10;
             }
-        else
+        } else {
             while (span < 1) {
                 span *= 10;
                 factor /= 10;
             }
+        }
         int nSpan = (int) Math.ceil(span);
         yValue[MAX] = yValue[MIN] + factor * nSpan;
         switch (nSpan) {
@@ -104,10 +85,18 @@ public class HistogramA {
         plotBars();
         plotRuler();
         plotKeys();
-        if (f.hasBorder) plotBorder();
-        if (f.hasRightRuler) plotRightRuler();
-        if (f.hasHeader) plotHeader();
-        if (f.hasFooter) plotFooter();
+        if (f.hasBorder) {
+            plotBorder();
+        }
+        if (f.hasRightRuler) {
+            plotRightRuler();
+        }
+        if (f.hasHeader) {
+            plotHeader();
+        }
+        if (f.hasFooter) {
+            plotFooter();
+        }
     }
 
     private void setCanvas() {
@@ -129,8 +118,6 @@ public class HistogramA {
         xScale[MAX] = nBars + f.margins[EAST] * xSpacing;
         StdDraw.setXscale(xScale[MIN], xScale[MAX]);
     }
-
-    ;
 
     private void setOriginalScale() {
         StdDraw.setXscale(c.xScale[MIN], c.xScale[MAX]);
@@ -177,19 +164,34 @@ public class HistogramA {
     }
 
     private String numberForRuler(double x) {   // TO BE Customized
-        if (yValue[MAX] >= 5 && rulerStep > 1) return "" + (int) x;
-        if (rulerStep > 0.1) return String.format("%.1f", x);
-        if (rulerStep > 0.01) return String.format("%.2f", x);
-        if (rulerStep > 0.001) return String.format("%.3f", x);
-        if (rulerStep > 0.0001) return String.format("%.4f", x);
-        if (rulerStep > 0.00001) return String.format("%.5f", x);
+        if (yValue[MAX] >= 5 && rulerStep > 1) {
+            return "" + (int) x;
+        }
+        if (rulerStep > 0.1) {
+            return String.format("%.1f", x);
+        }
+        if (rulerStep > 0.01) {
+            return String.format("%.2f", x);
+        }
+        if (rulerStep > 0.001) {
+            return String.format("%.3f", x);
+        }
+        if (rulerStep > 0.0001) {
+            return String.format("%.4f", x);
+        }
+        if (rulerStep > 0.00001) {
+            return String.format("%.5f", x);
+        }
         return String.format("%g", x);
     }
 
     private int maxMarkLength(String[] sa) {
         int n = sa[0].length();
-        for (String s : sa)
-            if (n < s.length()) n = s.length();
+        for (String s : sa) {
+            if (n < s.length()) {
+                n = s.length();
+            }
+        }
         return n;
     }
 
@@ -216,7 +218,8 @@ public class HistogramA {
     }
 
     private void plotRightRuler() {
-    } //TODO
+        //TODO: Implemented this method
+    }
 
     private void plotHeader() {
         Font font = new Font("calibri", Font.PLAIN, 20); // TO BE Customized
@@ -236,10 +239,4 @@ public class HistogramA {
         StdDraw.text(x, y, d.footer);
     }
 
-    private final static int NORTH = 0;
-    private final static int SOUTH = 1;
-    private final static int WEST = 2;
-    private final static int EAST = 3;
-    private final static int MIN = 0;
-    private final static int MAX = 1;
 }
