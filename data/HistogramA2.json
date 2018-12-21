@@ -2,27 +2,27 @@
   "histogram": {
     "canvas": {
       "size": [ 1024, 512 ],
-      "xscale": [ 0, 2.0 ],
-      "yscale": [ 0, 1.0 ],
-      "bgcolor": [ 255, 255, 255 ],
-      "color": [ 0, 0, 0 ]
+      "xScale": [ 0, 2.0 ],
+      "yScale": [ 0, 1.0 ],
+      "backgroundColor": [ 255, 255, 255 ],
+      "foregroundColor": [ 0, 0, 0 ]
     },
     "formats": {
       "margins": [ 0.15, 0.15, 0.1, 0.05 ],
-      "isbarfilled": true,
-      "barfillcolor": [ 0, 0, 255 ],
-      "hasbarframe": false,
-      "barframecolor": [ 255, 0, 0 ],
-      "hasborder": true,
-      "bordercolor": [ 0, 255, 0 ],
-      "rulercolor": [ 200, 200, 0 ],
-      "rulermarkcolor": [ 200, 200, 0 ],
-      "hasrightruler": true,
-      "keycolor": [ 200, 200, 0 ],
-      "hasheader": true,
-      "headercolor": [ 100, 100, 100 ],
-      "hasfooter": true,
-      "footercolor": [ 0, 200, 200 ]
+      "isBarFilled": true,
+      "barFillColor": [ 0, 0, 255 ],
+      "hasBarFrame": false,
+      "barFrameColor": [ 255, 0, 0 ],
+      "hasBorder": true,
+      "borderColor": [ 0, 255, 0 ],
+      "rulerColor": [ 200, 200, 0 ],
+      "rulerMarkColor": [ 200, 200, 0 ],
+      "hasRightRuler": true,
+      "keyColor": [ 200, 200, 0 ],
+      "hasHeader": true,
+      "headerColor": [ 100, 100, 100 ],
+      "hasFooter": true,
+      "footerColor": [ 0, 200, 200 ]
     },
     "data": {
       "header": "1952-2017 GDP of P.R.China",
