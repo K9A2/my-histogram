@@ -12,8 +12,8 @@ public class HistogramFormat {
     public boolean isBarFilled = true;
     public Color barFillColor = Color.BLACK;
 
-    public boolean hasBarFrame = true;
-    public Color barFrameColor = Color.BLACK;
+    public boolean hasBarBorder = true;
+    public Color barBorderColor = Color.BLACK;
 
     public boolean hasBorder = true;
     public Color borderColor = Color.BLACK;

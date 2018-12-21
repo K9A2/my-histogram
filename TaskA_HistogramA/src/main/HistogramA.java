@@ -156,8 +156,8 @@ public class HistogramA {
                 // (x, y, halfWidth, halfHeight)
             }
         }
-        if (format.hasBarFrame) {
-            StdDraw.setPenColor(format.barFrameColor);
+        if (format.hasBarBorder) {
+            StdDraw.setPenColor(format.barBorderColor);
             for (int i = 0; i < n; i++) {
                 StdDraw.rectangle(i, a[i] / 2, 0.25, a[i] / 2);
                 // (x, y, halfWidth, halfHeight)
@@ -166,7 +166,7 @@ public class HistogramA {
     }
 
     private void plotRuler() {
-        Font font = new Font("consolas", Font.PLAIN, 12); // TO BE Customized
+        Font font = new Font("consolas", Font.PLAIN, 16); // TODO: TO BE Customized
         StdDraw.setFont(font);
         StdDraw.setPenColor(format.rulerColor);
         final double x0 = xValue[MIN] - 0.05, x1 = xValue[MIN] + 0.05;
@@ -184,7 +184,7 @@ public class HistogramA {
         }
     }
 
-    private String numberForRuler(double x) {   // TO BE Customized
+    private String numberForRuler(double x) {   // TODO: TO BE Customized
         if (yValue[MAX] >= 5 && rulerStep > 1) {
             return "" + (int) x;
         }
@@ -217,7 +217,7 @@ public class HistogramA {
     }
 
     private void plotKeys() {
-        Font font = new Font("consolas", Font.PLAIN, 12); // TO BE Customized
+        Font font = new Font("calibri", Font.PLAIN, 16); // TODO: TO BE Customized
         StdDraw.setFont(font);
         StdDraw.setPenColor(format.keyColor);
         final double y = yValue[MIN] - 0.5 * rulerStep;
@@ -243,7 +243,7 @@ public class HistogramA {
     }
 
     private void plotHeader() {
-        Font font = new Font("calibri", Font.PLAIN, 20); // TO BE Customized
+        Font font = new Font("calibri", Font.PLAIN, 16); // TODO: TO BE Customized
         StdDraw.setFont(font);
         double x = .5 * (xScale[MIN] + xScale[MAX]);
         double y = .5 * (yValue[MAX] + yScale[MAX]);
@@ -252,7 +252,7 @@ public class HistogramA {
     }
 
     private void plotFooter() {
-        Font font = new Font("consolas", Font.BOLD, 16); // TO BE Customized
+        Font font = new Font("calibri", Font.PLAIN, 16); // TODO: TO BE Customized
         StdDraw.setFont(font);
         double x = .5 * (xScale[MIN] + xScale[MAX]);
         double y = .5 * (yScale[MIN] + yValue[MIN]);

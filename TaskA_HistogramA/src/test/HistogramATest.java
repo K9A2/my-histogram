@@ -6,6 +6,7 @@ import javax.json.Json;
 import javax.json.JsonArray;
 import javax.json.JsonObject;
 import javax.json.JsonReader;
+import java.awt.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -92,37 +93,37 @@ public class HistogramATest {
         // default: true
         format.isBarFilled = parseBoolean(jsonObject, "isBarFilled", format.isBarFilled);
         // default: Color.BLACK
-        format.barFillColor = parseColor(jsonObject, "barFillColor", format.barFillColor);
+        format.barFillColor = parseColor(jsonObject, "barFillColor", HistogramDefault.DEFAULT_COLOR_LIST.get(0));
 
         // default: true
-        format.hasBarFrame = parseBoolean(jsonObject, "hasBarFrame", format.hasBarFrame);
+        format.hasBarBorder = parseBoolean(jsonObject, "hasBarBorder", format.hasBarBorder);
         // default: Color.BLACK
-        format.barFrameColor = parseColor(jsonObject, "barFrameColor", format.barFrameColor);
+        format.barBorderColor = parseColor(jsonObject, "barBorderColor", HistogramDefault.DEFAULT_COLOR_LIST.get(0));
 
         // default: true
         format.hasRightRuler = parseBoolean(jsonObject, "hasRightRuler", format.hasRightRuler);
         // default: Color.BLACK
-        format.rulerColor = parseColor(jsonObject, "rulerColor", format.rulerColor);
+        format.rulerColor = parseColor(jsonObject, "rulerColor", Color.BLACK);
         // default: Color.BLACK
         format.rulerMarkColor = parseColor(jsonObject, "rulerMarkColor", format.rulerMarkColor);
 
         // default: true
         format.hasBorder = parseBoolean(jsonObject, "hasBorder", format.hasBorder);
         // default: Color.BLACK
-        format.borderColor = parseColor(jsonObject, "borderColor", format.borderColor);
+        format.borderColor = parseColor(jsonObject, "borderColor", Color.BLACK);
 
         // default: Color.BLACK
-        format.keyColor = parseColor(jsonObject, "keyColor", format.keyColor);
+        format.keyColor = parseColor(jsonObject, "keyColor", Color.BLACK);
 
         // default: true
         format.hasHeader = parseBoolean(jsonObject, "hasHeader", format.hasHeader);
         // default: Color.BLACK
-        format.headerColor = parseColor(jsonObject, "headerColor", format.headerColor);
+        format.headerColor = parseColor(jsonObject, "headerColor", Color.BLACK);
 
         // default: true
         format.hasFooter = parseBoolean(jsonObject, "hasFooter", format.hasFooter);
         // default: Color.BLACK
-        format.footerColor = parseColor(jsonObject, "footerColor", format.footerColor);
+        format.footerColor = parseColor(jsonObject, "footerColor", Color.BLACK);
 
         return format;
     }
