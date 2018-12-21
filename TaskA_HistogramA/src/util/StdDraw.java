@@ -78,7 +78,7 @@ import javax.swing.KeyStroke;
  *  allows you to create drawings consisting of points, lines, squares,
  *  circles, and other geometric shapes in a window on your computer and
  *  to save the drawings to a file. Standard drawing also includes
- *  facilities for text, color, pictures, and animation, along with
+ *  facilities for text, foregroundColor, pictures, and animation, along with
  *  user interaction via the keyboard and mouse.
  *  <p>
  *  <b>Getting started.</b>
@@ -107,7 +107,7 @@ import javax.swing.KeyStroke;
  *  control drawing parameters.
  *  The methods {@code StdDraw.line()} and {@code StdDraw.point()}
  *  draw lines and points; the methods {@code StdDraw.setPenRadius()}
- *  and {@code StdDraw.setPenColor()} control the line thickness and color.
+ *  and {@code StdDraw.setPenColor()} control the line thickness and foregroundColor.
  *  <p>
  *  <b>Points and lines.</b>
  *  You can draw points and line segments with the following methods:
@@ -194,18 +194,18 @@ import javax.swing.KeyStroke;
  *  To draw points with the minimum possible radius (one pixel on typical
  *  displays), set the pen radius to 0.0.
  *  <p>
- *  <b>Pen color.</b>
+ *  <b>Pen foregroundColor.</b>
  *  All geometric shapes (such as points, lines, and circles) are drawn using
- *  the current pen color. By default, it is black.
- *  You can change the pen color with the following methods:
+ *  the current pen foregroundColor. By default, it is black.
+ *  You can change the pen foregroundColor with the following methods:
  *  <ul>
  *  <li> {@link #setPenColor(int red, int green, int blue)}
- *  <li> {@link #setPenColor(Color color)}
+ *  <li> {@link #setPenColor(Color foregroundColor)}
  *  </ul>
  *  <p>
- *  The first method allows you to specify colors using the RGB color system.
- *  This <a href = "http://johndyer.name/lab/colorpicker/">color picker</a>
- *  is a convenient way to find a desired color.
+ *  The first method allows you to specify colors using the RGB foregroundColor system.
+ *  This <a href = "http://johndyer.name/lab/colorpicker/">foregroundColor picker</a>
+ *  is a convenient way to find a desired foregroundColor.
  *  The second method allows you to specify colors using the
  *  {@link Color} data type that is discussed in Chapter 3. Until then,
  *  you can use this method with one of these predefined colors in standard drawing:
@@ -215,7 +215,7 @@ import javax.swing.KeyStroke;
  *  {@link #BOOK_BLUE}, {@link #BOOK_LIGHT_BLUE}, {@link #BOOK_RED}, and
  *  {@link #PRINCETON_ORANGE}.
  *  For example, {@code StdDraw.setPenColor(StdDraw.MAGENTA)} sets the
- *  pen color to magenta.
+ *  pen foregroundColor to magenta.
  *  <p>
  *  <b>HistogramCanvas size.</b>
  *  By default, all drawing takes places in a 512-by-512 canvas.
@@ -227,7 +227,7 @@ import javax.swing.KeyStroke;
  *  <p>
  *  This sets the canvas size to be <em>width</em>-by-<em>height</em> pixels.
  *  It also erases the current drawing and resets the coordinate system,
- *  pen radius, pen color, and font back to their default values.
+ *  pen radius, pen foregroundColor, and font back to their default values.
  *  Ordinarly, this method is called once, at the very beginning of a program.
  *  For example, {@code StdDraw.setCanvasSize(800, 800)}
  *  sets the canvas size to be 800-by-800 pixels.
@@ -313,11 +313,11 @@ import javax.swing.KeyStroke;
  *  To clear the entire drawing canvas, you can use the following methods:
  *  <ul>
  *  <li> {@link #clear()}
- *  <li> {@link #clear(Color color)}
+ *  <li> {@link #clear(Color foregroundColor)}
  *  </ul>
  *  <p>
  *  The first method clears the canvas to white; the second method
- *  allows you to specify a color of your choice. For example,
+ *  allows you to specify a foregroundColor of your choice. For example,
  *  {@code StdDraw.clear(StdDraw.LIGHT_GRAY)} clears the canvas to a shade
  *  of gray.
  *  <p>
@@ -406,7 +406,7 @@ import javax.swing.KeyStroke;
  *  The third method tells you whether a key is currently being pressed.
  *  <p>
  *  <b>Accessing control parameters.</b>
- *  You can use the following methods to access the current pen color, pen radius,
+ *  You can use the following methods to access the current pen foregroundColor, pen radius,
  *  and font:
  *  <ul>
  *  <li> {@link #getPenColor()}
@@ -476,67 +476,67 @@ import javax.swing.KeyStroke;
 public final class StdDraw implements ActionListener, MouseListener, MouseMotionListener, KeyListener {
 
     /**
-     *  The color black.
+     *  The foregroundColor black.
      */
     public static final Color BLACK = Color.BLACK;
 
     /**
-     *  The color blue.
+     *  The foregroundColor blue.
      */
     public static final Color BLUE = Color.BLUE;
 
     /**
-     *  The color cyan.
+     *  The foregroundColor cyan.
      */
     public static final Color CYAN = Color.CYAN;
 
     /**
-     *  The color dark gray.
+     *  The foregroundColor dark gray.
      */
     public static final Color DARK_GRAY = Color.DARK_GRAY;
 
     /**
-     *  The color gray.
+     *  The foregroundColor gray.
      */
     public static final Color GRAY = Color.GRAY;
 
     /**
-     *  The color green.
+     *  The foregroundColor green.
      */
     public static final Color GREEN  = Color.GREEN;
 
     /**
-     *  The color light gray.
+     *  The foregroundColor light gray.
      */
     public static final Color LIGHT_GRAY = Color.LIGHT_GRAY;
 
     /**
-     *  The color magenta.
+     *  The foregroundColor magenta.
      */
     public static final Color MAGENTA = Color.MAGENTA;
 
     /**
-     *  The color orange.
+     *  The foregroundColor orange.
      */
     public static final Color ORANGE = Color.ORANGE;
 
     /**
-     *  The color pink.
+     *  The foregroundColor pink.
      */
     public static final Color PINK = Color.PINK;
 
     /**
-     *  The color red.
+     *  The foregroundColor red.
      */
     public static final Color RED = Color.RED;
 
     /**
-     *  The color white.
+     *  The foregroundColor white.
      */
     public static final Color WHITE = Color.WHITE;
 
     /**
-     *  The color yellow.
+     *  The foregroundColor yellow.
      */
     public static final Color YELLOW = Color.YELLOW;
 
@@ -568,7 +568,7 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
     private static final Color DEFAULT_PEN_COLOR   = BLACK;
     private static final Color DEFAULT_CLEAR_COLOR = WHITE;
 
-    // current pen color
+    // current pen foregroundColor
     private static Color penColor;
 
     // default canvas size is DEFAULT_SIZE-by-DEFAULT_SIZE
@@ -637,7 +637,7 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
     /**
      * Sets the canvas (drawing area) to be 512-by-512 pixels.
      * This also erases the current drawing and resets the coordinate system,
-     * pen radius, pen color, and font back to their default values.
+     * pen radius, pen foregroundColor, and font back to their default values.
      * Ordinarly, this method is called once, at the very beginning
      * of a program.
      */
@@ -648,7 +648,7 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
     /**
      * Sets the canvas (drawing area) to be <em>width</em>-by-<em>height</em> pixels.
      * This also erases the current drawing and resets the coordinate system,
-     * pen radius, pen color, and font back to their default values.
+     * pen radius, pen foregroundColor, and font back to their default values.
      * Ordinarly, this method is called once, at the very beginning
      * of a program.
      *
@@ -808,16 +808,16 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
 
 
     /**
-     * Clears the screen to the default color (white).
+     * Clears the screen to the default foregroundColor (white).
      */
     public static void clear() {
         clear(DEFAULT_CLEAR_COLOR);
     }
 
     /**
-     * Clears the screen to the specified color.
+     * Clears the screen to the specified foregroundColor.
      *
-     * @param color the color to make the background
+     * @param color the foregroundColor to make the background
      */
     public static void clear(Color color) {
         offscreen.setColor(color);
@@ -864,23 +864,23 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
     }
 
     /**
-     * Returns the current pen color.
+     * Returns the current pen foregroundColor.
      *
-     * @return the current pen color
+     * @return the current pen foregroundColor
      */
     public static Color getPenColor() {
         return penColor;
     }
 
     /**
-     * Set the pen color to the default color (black).
+     * Set the pen foregroundColor to the default foregroundColor (black).
      */
     public static void setPenColor() {
         setPenColor(DEFAULT_PEN_COLOR);
     }
 
     /**
-     * Sets the pen color to the specified color.
+     * Sets the pen foregroundColor to the specified foregroundColor.
      * <p>
      * The predefined pen colors are
      * {@code StdDraw.BLACK}, {@code StdDraw.BLUE}, {@code StdDraw.CYAN},
@@ -889,7 +889,7 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
      * {@code StdDraw.PINK}, {@code StdDraw.RED}, {@code StdDraw.WHITE}, and
      * {@code StdDraw.YELLOW}.
      *
-     * @param color the color to make the pen
+     * @param color the foregroundColor to make the pen
      */
     public static void setPenColor(Color color) {
         if (color == null) throw new IllegalArgumentException();
@@ -898,7 +898,7 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
     }
 
     /**
-     * Sets the pen color to the specified RGB color.
+     * Sets the pen foregroundColor to the specified RGB foregroundColor.
      *
      * @param  red the amount of red (between 0 and 255)
      * @param  green the amount of green (between 0 and 255)

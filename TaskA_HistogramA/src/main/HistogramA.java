@@ -6,48 +6,68 @@ import java.awt.Font;
 
 public class HistogramA {
 
-    private HistogramCanvas c;
-    private HistogramFormat f;
-    private HistogramData d;
-    private double[] xValue;  // MIN, MAX
-    private double[] yValue;  // MIN, MAX
-    private double[] xScale;  // MIN, MAX
-    private double[] yScale;  // MIN, MAX
+    /* Key components */
+    private HistogramCanvas canvas;
+    private HistogramFormat format;
+    private HistogramData data;
+
+    /* Two dimension parameters: MIN/MAX */
+    private double[] xValue = new double[2];
+    private double[] yValue = new double[2];
+    private double[] xScale = new double[2];
+    private double[] yScale = new double[2];
+
+    /* Set the format of ruler */
     private int rulerGrade;
     private double rulerStep;
 
-    private final static int NORTH = 0;
-    private final static int SOUTH = 1;
-    private final static int WEST = 2;
-    private final static int EAST = 3;
+    /* Use them to set the margin of this HistogramA instance */
+    private final static int UPPER = 0;
+    private final static int BOTTOM = 1;
+    private final static int LEFT = 2;
+    private final static int RIGHT = 3;
+
     private final static int MIN = 0;
     private final static int MAX = 1;
 
-    public HistogramA(HistogramCanvas c, HistogramFormat f, HistogramData d) {
-        this.c = c;
-        this.f = f;
-        this.d = d;
-        xValue = new double[2];
-        yValue = new double[2];
-        xScale = new double[2];
-        yScale = new double[2];
+    /**
+     * Use this constructor to set the components of this HistogramA instance
+     *
+     * @param canvas A HistogramCanvas component
+     * @param format A HistogramFormat component
+     * @param data A HistogramData component
+     */
+    public HistogramA(HistogramCanvas canvas, HistogramFormat format, HistogramData data) {
+        // Incoming components
+        this.canvas = canvas;
+        this.format = format;
+        this.data = data;
+
         setHistogramParameters();
     }
 
+    /**
+     * Set various parameters of this HistogramA instance
+     */
     private void setHistogramParameters() {
-        double[] a = d.values;
+
+        // The data extracted from JSON file
+        double[] values = this.data.values;
+
         xValue[MIN] = -1;
-        xValue[MAX] = a.length;
+        xValue[MAX] = values.length;
 
-        yValue[MIN] = d.minValue;
+        yValue[MIN] = data.minValue;
 
-        double max = a[0];
-        for (int i = 1; i < a.length; i++) {
-            if (max < a[i]) {
-                max = a[i];
+        /* Get the max in values[] */
+        double max = values[0];
+        for (int i = 1; i < values.length; i++) {
+            if (max < values[i]) {
+                max = values[i];
             }
         }
 
+        /*  */
         double span = max - yValue[MIN];
         double factor = 1.0;
         if (span >= 1) {
@@ -61,6 +81,7 @@ public class HistogramA {
                 factor /= 10;
             }
         }
+        // Calculate the count of spans
         int nSpan = (int) Math.ceil(span);
         yValue[MAX] = yValue[MIN] + factor * nSpan;
         switch (nSpan) {
@@ -85,58 +106,58 @@ public class HistogramA {
         plotBars();
         plotRuler();
         plotKeys();
-        if (f.hasBorder) {
+        if (format.hasBorder) {
             plotBorder();
         }
-        if (f.hasRightRuler) {
+        if (format.hasRightRuler) {
             plotRightRuler();
         }
-        if (f.hasHeader) {
+        if (format.hasHeader) {
             plotHeader();
         }
-        if (f.hasFooter) {
+        if (format.hasFooter) {
             plotFooter();
         }
     }
 
     private void setCanvas() {
-        StdDraw.setCanvasSize(c.x, c.y);
+        StdDraw.setCanvasSize(canvas.x, canvas.y);
         setOriginalScale();
-        StdDraw.clear(c.bgColor);
-        StdDraw.setPenColor(c.color);
+        StdDraw.clear(canvas.backgroundColor);
+        StdDraw.setPenColor(canvas.foregroundColor);
     }
 
     private void setHistogramScale(int nBars) {
         double span = yValue[MAX] - yValue[MIN] + 1;
-        double ySpacing = span / (1 - f.margins[NORTH] - f.margins[SOUTH]);
-        yScale[MIN] = yValue[MIN] - f.margins[SOUTH] * ySpacing - 1;
-        yScale[MAX] = yValue[MAX] + f.margins[NORTH] * ySpacing;
+        double ySpacing = span / (1 - format.margins[UPPER] - format.margins[BOTTOM]);
+        yScale[MIN] = yValue[MIN] - format.margins[BOTTOM] * ySpacing - 1;
+        yScale[MAX] = yValue[MAX] + format.margins[UPPER] * ySpacing;
         StdDraw.setYscale(yScale[MIN], yScale[MAX]);
 
-        double xSpacing = (nBars + 1) / (1 - f.margins[WEST] - f.margins[EAST]);
-        xScale[MIN] = -f.margins[WEST] * xSpacing - 1;
-        xScale[MAX] = nBars + f.margins[EAST] * xSpacing;
+        double xSpacing = (nBars + 1) / (1 - format.margins[LEFT] - format.margins[RIGHT]);
+        xScale[MIN] = -format.margins[LEFT] * xSpacing - 1;
+        xScale[MAX] = nBars + format.margins[RIGHT] * xSpacing;
         StdDraw.setXscale(xScale[MIN], xScale[MAX]);
     }
 
     private void setOriginalScale() {
-        StdDraw.setXscale(c.xScale[MIN], c.xScale[MAX]);
-        StdDraw.setYscale(c.yScale[MIN], c.yScale[MAX]);
+        StdDraw.setXscale(canvas.xScale[MIN], canvas.xScale[MAX]);
+        StdDraw.setYscale(canvas.yScale[MIN], canvas.yScale[MAX]);
     }
 
     private void plotBars() {
-        double[] a = d.values;
+        double[] a = data.values;
         int n = a.length;
         setHistogramScale(n);
-        if (f.isBarFilled) {
-            StdDraw.setPenColor(f.barFillColor);
+        if (format.isBarFilled) {
+            StdDraw.setPenColor(format.barFillColor);
             for (int i = 0; i < n; i++) {
                 StdDraw.filledRectangle(i, a[i] / 2, 0.25, a[i] / 2);
                 // (x, y, halfWidth, halfHeight)
             }
         }
-        if (f.hasBarFrame) {
-            StdDraw.setPenColor(f.barFrameColor);
+        if (format.hasBarFrame) {
+            StdDraw.setPenColor(format.barFrameColor);
             for (int i = 0; i < n; i++) {
                 StdDraw.rectangle(i, a[i] / 2, 0.25, a[i] / 2);
                 // (x, y, halfWidth, halfHeight)
@@ -147,7 +168,7 @@ public class HistogramA {
     private void plotRuler() {
         Font font = new Font("consolas", Font.PLAIN, 12); // TO BE Customized
         StdDraw.setFont(font);
-        StdDraw.setPenColor(f.rulerColor);
+        StdDraw.setPenColor(format.rulerColor);
         final double x0 = xValue[MIN] - 0.05, x1 = xValue[MIN] + 0.05;
         String[] mark = new String[rulerGrade + 1];
         for (int i = 0; i <= rulerGrade; i++) {
@@ -198,12 +219,12 @@ public class HistogramA {
     private void plotKeys() {
         Font font = new Font("consolas", Font.PLAIN, 12); // TO BE Customized
         StdDraw.setFont(font);
-        StdDraw.setPenColor(f.keyColor);
+        StdDraw.setPenColor(format.keyColor);
         final double y = yValue[MIN] - 0.5 * rulerStep;
-        for (int i = 0; i < d.keys.length; i++) {
-            if (d.keys[i].length() >= 1) {
+        for (int i = 0; i < data.keys.length; i++) {
+            if (data.keys[i].length() >= 1) {
                 double x = xValue[MIN] + 1 + i;
-                StdDraw.text(x, y, d.keys[i]);
+                StdDraw.text(x, y, data.keys[i]);
             }
         }
     }
@@ -213,7 +234,7 @@ public class HistogramA {
         double y = .5 * (yValue[MIN] + yValue[MAX]);
         double halfWidth = .5 * (xValue[MAX] - xValue[MIN]);
         double halfHeight = .5 * (yValue[MAX] - yValue[MIN]);
-        StdDraw.setPenColor(f.borderColor);
+        StdDraw.setPenColor(format.borderColor);
         StdDraw.rectangle(x, y, halfWidth, halfHeight);
     }
 
@@ -226,8 +247,8 @@ public class HistogramA {
         StdDraw.setFont(font);
         double x = .5 * (xScale[MIN] + xScale[MAX]);
         double y = .5 * (yValue[MAX] + yScale[MAX]);
-        StdDraw.setPenColor(f.headerColor);
-        StdDraw.text(x, y, d.header);
+        StdDraw.setPenColor(format.headerColor);
+        StdDraw.text(x, y, data.header);
     }
 
     private void plotFooter() {
@@ -235,8 +256,8 @@ public class HistogramA {
         StdDraw.setFont(font);
         double x = .5 * (xScale[MIN] + xScale[MAX]);
         double y = .5 * (yScale[MIN] + yValue[MIN]);
-        StdDraw.setPenColor(f.footerColor);
-        StdDraw.text(x, y, d.footer);
+        StdDraw.setPenColor(format.footerColor);
+        StdDraw.text(x, y, data.footer);
     }
 
 }
