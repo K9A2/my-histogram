@@ -6,7 +6,7 @@ public class HistogramFormat {
 
     /* Parameters and their default values */
 
-    // UPPER, BOTTOM, LEFT, RIGHT margins
+    // UPPER, BOTTOM, LEFT, RIGHT margins, in 0.0 to 1.0, relative to the whole figure
     public double[] margins = {0.15, 0.15, 0.1, 0.05};
 
     public boolean isBarFilled = true;
