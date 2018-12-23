@@ -1,9 +1,7 @@
 {
   "histogram": {
     "canvas": {
-      "size": [ 1024, 512 ],
-      "xScale": [ 0, 2.0 ],
-      "yScale": [ 0, 1.0 ]
+      "size": [ 1024, 512 ]
     },
     "formats": {
       "margins": [ 0.15, 0.15, 0.1, 0.05 ],
@@ -12,7 +10,9 @@
       "hasBorder": true,
       "hasRightRuler": true,
       "hasHeader": true,
-      "hasFooter": true
+      "hasFooter": true,
+      "rulerRotate": 45,
+      "keyRotate": 45
     },
     "data": {
       "header": "1952-2017 GDP of P.R.China",

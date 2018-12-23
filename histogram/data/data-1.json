@@ -1,0 +1,36 @@
+{
+  "type": "SimpleBarChart",
+  "width": 1024,
+  "height": 768,
+  "margins": [0.1, 0.1, 0.1, 0.1],
+  "title": {
+    "text": "Sample Bar Chart Title",
+    "fontName": "Consolas",
+    "fontSize": 16,
+    "fontStyle": "PLAIN"
+  },
+  "xaxis": {
+    "label": "Sample XLabel",
+    "fontName": "Consolas",
+    "fontSize": 16,
+    "fontStyle": "PLAIN"
+  },
+  "yaxis": {
+    "label": "Sample YLabel",
+    "fontName": "Consolas",
+    "fontSize": 16,
+    "fontStyle": "PLAIN"
+  },
+  "leftRuler": {
+    "min": 0,
+    "max": 1000,
+    "step": 100
+  },
+  "hasRightRuler": false,
+  "data": {
+    "key": ["2001", "2002", "2003", "2004", "2005"],
+    "value": [100, 200, 300, 400, 500],
+    "barBodyColor": "#1f77b4",
+    "barBorderColor": "ff7f0e"
+  }
+}
