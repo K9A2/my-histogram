@@ -1,8 +1,6 @@
-package test;
-
 import main.java.com.stormlin.histogram.Histogram;
 
-public class HistogramTest {
+public class Main {
 
     public static void main(String[] args) {
 

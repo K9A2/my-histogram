@@ -12,7 +12,7 @@ public class RequiredKeyNotFoundException extends RuntimeException {
     }
 
     public String toString() {
-        String messageTemplate = "Type: %s, Key: %s Not Found";
+        String messageTemplate = "[Type: %s, Key: %s] Not Found";
         return String.format(messageTemplate, this.type, this.key);
     }
 

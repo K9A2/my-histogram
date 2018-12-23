@@ -75,6 +75,8 @@ public class Histogram {
 
     private void plotSimpleBarChart() {
 
+
+
     }
 
     private void plotStackedBarChart() {
@@ -82,6 +84,10 @@ public class Histogram {
     }
 
     private void plotGroupedBarChart() {
+
+    }
+
+    private void plotBorder() {
 
     }
 
