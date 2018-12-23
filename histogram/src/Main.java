@@ -2,7 +2,7 @@ import main.java.com.stormlin.histogram.Histogram;
 
 import javax.swing.*;
 
-public class Figure extends JFrame {
+public class Main {
 
     public static void main(String[] args) {
         String filePath = "./data/" + args[0];
