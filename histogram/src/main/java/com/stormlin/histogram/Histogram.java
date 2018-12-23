@@ -2,10 +2,13 @@ package main.java.com.stormlin.histogram;
 
 import main.java.com.stormlin.common.Constants;
 import main.java.com.stormlin.common.RequiredKeyNotFoundException;
+import main.java.com.stormlin.plotter.SimpleBarChartPlotter;
 
 import javax.json.Json;
 import javax.json.JsonObject;
 import javax.json.JsonReader;
+import javax.swing.*;
+import java.awt.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -13,7 +16,7 @@ import java.io.InputStream;
 
 import static main.java.com.stormlin.common.Util.*;
 
-public class Histogram {
+public class Histogram extends JFrame {
 
     private String type;
 
@@ -23,6 +26,9 @@ public class Histogram {
     // Upper, Bottom, Left, Right
     private double[] margins;
 
+    private Color foregroundColor;
+    private Color backgroundColor;
+
     // Basic components
     private HistogramTitle title;
     private HistogramAxis xaxis;
@@ -30,6 +36,26 @@ public class Histogram {
     private HistogramRuler leftRuler;
     private HistogramRuler rightRuler;
     private HistogramData data;
+
+    public int getCanvasWidth() {
+        return this.width;
+    }
+
+    public int getCanvasHeight() {
+        return this.height;
+    }
+
+    public double[] getMargins() {
+        return margins;
+    }
+
+    public Color getForegroundColor() {
+        return foregroundColor;
+    }
+
+    public Color getBackgroundColor() {
+        return backgroundColor;
+    }
 
     public Histogram(String filePath) {
 
@@ -46,6 +72,10 @@ public class Histogram {
             this.height = parseRequiredInt(object, "height");
             this.margins = parseRequiredDoubleArray(object, "margins");
             this.title = new HistogramTitle(object.getJsonObject("title"));
+            this.foregroundColor = Color.decode(parseString(object, "foregroundColor",
+                    Constants.DEFAULT_FOREGROUND_COLOR));
+            this.backgroundColor = Color.decode(parseString(object, "backgroundColor",
+                    Constants.DEFAULT_BACKGROUND_COLOR));
             this.xaxis = new HistogramAxis(object.getJsonObject("xaxis"));
             this.yaxis = new HistogramAxis(object.getJsonObject("yaxis"));
             this.leftRuler = new HistogramRuler(getRequiredJsonObject(object, "leftRuler"));
@@ -60,22 +90,28 @@ public class Histogram {
     }
 
     public void draw() {
+        Container container = getContentPane();
         switch (this.type) {
             case Constants.SIMPLE_BAR_CHART:
-                plotSimpleBarChart();
-                break;
-            case Constants.STACKED_BAR_CHART:
-                plotStackedBarChart();
+                plotSimpleBarChart(container);
                 break;
             case Constants.GROUPED_BAR_CHART:
                 plotGroupedBarChart();
                 break;
+            case Constants.STACKED_BAR_CHART:
+                plotStackedBarChart();
+                break;
         }
     }
 
-    private void plotSimpleBarChart() {
+    private void plotSimpleBarChart(Container container) {
+        SimpleBarChartPlotter plotter = new SimpleBarChartPlotter(this);
+        plotter.setPreferredSize(new Dimension(this.width, this.height));
+        container.add(plotter);
+        setupCanvas();
+    }
 
-
+    private void plotGroupedBarChart() {
 
     }
 
@@ -83,14 +119,12 @@ public class Histogram {
 
     }
 
-    private void plotGroupedBarChart() {
-
+    private void setupCanvas() {
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        pack();
+        setTitle(this.title.getText());
+        setVisible(true);
     }
-
-    private void plotBorder() {
-
-    }
-
 }
 
 class HistogramTitle {
@@ -182,15 +216,15 @@ class HistogramData {
     private String[] key;
     private double[] value;
 
-    // Colors are described in hex
+    // Colors are described in hex, such as "#FFFFFF"
     private String barBodyColor;
     private String barBorderColor;
 
     HistogramData(JsonObject object) {
         this.key = parseRequiredStringArray(object, "key");
         this.value = parseRequiredDoubleArray(object, "value");
-        this.barBodyColor = parseString(object, "barBodyColor", "#FFFFFF");
-        this.barBorderColor = parseString(object, "barBorderColor", "#000000");
+        this.barBodyColor = parseString(object, "barBodyColor", Constants.DEFAULT_BACKGROUND_COLOR);
+        this.barBorderColor = parseString(object, "barBorderColor", Constants.DEFAULT_FOREGROUND_COLOR);
     }
 
     public String[] getKey() {

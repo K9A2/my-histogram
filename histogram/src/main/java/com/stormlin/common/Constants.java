@@ -10,4 +10,12 @@ public class Constants {
     public static final int DEFAULT_FONT_SIZE = 16;
     public static final String DEFAULT_FONT_STYLE = "PLAIN";
 
+    public static final String DEFAULT_FOREGROUND_COLOR = "#000000";
+    public static final String DEFAULT_BACKGROUND_COLOR = "#FFFFFF";
+
+    public static final int MARGIN_UPPER = 0;
+    public static final int MARGIN_BOTTOM = 1;
+    public static final int MARGIN_LEFT = 2;
+    public static final int MARGIN_RIGHT = 3;
+
 }
