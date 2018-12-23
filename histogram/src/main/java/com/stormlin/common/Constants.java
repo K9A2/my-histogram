@@ -1,5 +1,7 @@
 package main.java.com.stormlin.common;
 
+import java.awt.*;
+
 public class Constants {
 
     public static final String SIMPLE_BAR_CHART = "SimpleBarChart";
@@ -10,8 +12,8 @@ public class Constants {
     public static final int DEFAULT_FONT_SIZE = 16;
     public static final String DEFAULT_FONT_STYLE = "PLAIN";
 
-    public static final String DEFAULT_FOREGROUND_COLOR = "#000000";
-    public static final String DEFAULT_BACKGROUND_COLOR = "#FFFFFF";
+    public static final Color DEFAULT_FOREGROUND_COLOR = Color.decode("#000000");
+    public static final Color DEFAULT_BACKGROUND_COLOR = Color.decode("#FFFFFF");
 
     public static final int MARGIN_UPPER = 0;
     public static final int MARGIN_BOTTOM = 1;

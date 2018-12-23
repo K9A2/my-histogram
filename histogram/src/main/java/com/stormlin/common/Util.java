@@ -1,5 +1,7 @@
 package main.java.com.stormlin.common;
 
+import netscape.javascript.JSObject;
+
 import javax.json.JsonArray;
 import javax.json.JsonObject;
 import java.awt.*;
@@ -275,6 +277,35 @@ public class Util {
             throw new RequiredKeyNotFoundException("JSON object", key);
         }
         return object.getJsonObject(key);
+    }
+
+    /**
+     * Return an array of required field from input JSON object
+     *
+     * @param object Input JSON object
+     * @param key    The key of this required JSON object array
+     * @return This required JSON object array
+     * @throws RequiredKeyNotFoundException If this field is not exists, throw this exception
+     */
+    public static JsonArray getRequiredObjectArray(JsonObject object, String key) throws RequiredKeyNotFoundException {
+        if (!object.containsKey(key)) {
+            throw new RequiredKeyNotFoundException("JSON object array", key);
+        }
+        return object.getJsonArray(key);
+    }
+
+    /**
+     * Convert the Color to its hex equivalent
+     *
+     * @param color The input color
+     * @return The hex string
+     */
+    public static String convertColorToHexString(Color color) {
+        String hexColour = Integer.toHexString(color.getRGB() & 0xffffff);
+        if (hexColour.length() < 6) {
+            hexColour = "000000".substring(0, 6 - hexColour.length()) + hexColour;
+        }
+        return "#" + hexColour;
     }
 
 }

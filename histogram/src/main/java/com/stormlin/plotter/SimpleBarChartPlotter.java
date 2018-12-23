@@ -16,9 +16,10 @@ public class SimpleBarChartPlotter extends JPanel implements Plotter {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        setBackground(this.histogram.getBackgroundColor());
+        setBackground(histogram.getBackgroundColor());
 
-        plotBorder(this.histogram, g);
+        plotBorder(histogram, g);
+        plotBars(histogram, g);
 
 //        g.setColor(Color.BLACK);
 //        g.drawLine(30, 40, 100, 200);

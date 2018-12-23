@@ -4,15 +4,14 @@ import main.java.com.stormlin.common.Constants;
 import main.java.com.stormlin.common.RequiredKeyNotFoundException;
 import main.java.com.stormlin.plotter.SimpleBarChartPlotter;
 
-import javax.json.Json;
-import javax.json.JsonObject;
-import javax.json.JsonReader;
+import javax.json.*;
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 
 import static main.java.com.stormlin.common.Util.*;
 
@@ -31,11 +30,16 @@ public class Histogram extends JFrame {
 
     // Basic components
     private HistogramTitle title;
-    private HistogramAxis xaxis;
-    private HistogramAxis yaxis;
+    private ArrayList<HistogramData> histogramDataList;
+    private HistogramAxis xAxis;
+    private HistogramAxis yAxis;
     private HistogramRuler leftRuler;
     private HistogramRuler rightRuler;
-    private HistogramData data;
+
+    private double plotAreaX;
+    private double plotAreaY;
+    private double plotAreaWidth;
+    private double plotAreaHeight;
 
     public int getCanvasWidth() {
         return this.width;
@@ -57,9 +61,49 @@ public class Histogram extends JFrame {
         return backgroundColor;
     }
 
+    public HistogramTitle getHistogramTitle() {
+        return title;
+    }
+
+    public ArrayList<HistogramData> getHistogramDataList() {
+        return histogramDataList;
+    }
+
+    public HistogramAxis getxAxis() {
+        return xAxis;
+    }
+
+    public HistogramAxis getyAxis() {
+        return yAxis;
+    }
+
+    public HistogramRuler getLeftRuler() {
+        return leftRuler;
+    }
+
+    public HistogramRuler getRightRuler() {
+        return rightRuler;
+    }
+
+    public double getPlotAreaX() {
+        return plotAreaX;
+    }
+
+    public double getPlotAreaY() {
+        return plotAreaY;
+    }
+
+    public double getPlotAreaWidth() {
+        return plotAreaWidth;
+    }
+
+    public double getPlotAreaHeight() {
+        return plotAreaHeight;
+    }
+
     public Histogram(String filePath) {
 
-        /* Load the designated JSON file to form a Histogram instance */
+        /* Set up the basic parameters for this histogram */
         try {
             System.out.println("Loading JSON file: " + filePath);
 
@@ -67,22 +111,37 @@ public class Histogram extends JFrame {
             JsonReader reader = Json.createReader(stream);
             JsonObject object = reader.readObject();
 
-            this.type = parseRequiredString(object, "type");
-            this.width = parseRequiredInt(object, "width");
-            this.height = parseRequiredInt(object, "height");
-            this.margins = parseRequiredDoubleArray(object, "margins");
-            this.title = new HistogramTitle(object.getJsonObject("title"));
-            this.foregroundColor = Color.decode(parseString(object, "foregroundColor",
-                    Constants.DEFAULT_FOREGROUND_COLOR));
-            this.backgroundColor = Color.decode(parseString(object, "backgroundColor",
-                    Constants.DEFAULT_BACKGROUND_COLOR));
-            this.xaxis = new HistogramAxis(object.getJsonObject("xaxis"));
-            this.yaxis = new HistogramAxis(object.getJsonObject("yaxis"));
-            this.leftRuler = new HistogramRuler(getRequiredJsonObject(object, "leftRuler"));
-            if (parseRequiredBoolean(object, "hasRightRuler")) {
-                this.rightRuler = new HistogramRuler(getRequiredJsonObject(object, "rightRuler"));
+            /* Load data */
+            type = parseRequiredString(object, "type");
+            width = parseRequiredInt(object, "width");
+            height = parseRequiredInt(object, "height");
+            margins = parseRequiredDoubleArray(object, "margins");
+            title = new HistogramTitle(object.getJsonObject("title"));
+
+            JsonArray dataArray = getRequiredObjectArray(object, "data");
+            histogramDataList = new ArrayList<>();
+            for (JsonValue jsonValue : dataArray) {
+                histogramDataList.add(new HistogramData(jsonValue));
             }
-            this.data = new HistogramData(getRequiredJsonObject(object, "data"));
+
+            foregroundColor = Color.decode(parseString(object, "foregroundColor",
+                    convertColorToHexString(Constants.DEFAULT_FOREGROUND_COLOR)));
+            backgroundColor = Color.decode(parseString(object, "backgroundColor",
+                    convertColorToHexString(Constants.DEFAULT_BACKGROUND_COLOR)));
+            xAxis = new HistogramAxis(object.getJsonObject("xAxis"));
+            yAxis = new HistogramAxis(object.getJsonObject("yAxis"));
+
+            /* Left ruler is mandatory, while right ruler is optional */
+            leftRuler = new HistogramRuler(getRequiredJsonObject(object, "leftRuler"));
+            if (parseRequiredBoolean(object, "hasRightRuler")) {
+                rightRuler = new HistogramRuler(getRequiredJsonObject(object, "rightRuler"));
+            }
+
+            /* Calculate parameters for plot area */
+            plotAreaX = width * margins[Constants.MARGIN_LEFT];
+            plotAreaY = height * margins[Constants.MARGIN_UPPER];
+            plotAreaWidth = width * (1 - margins[Constants.MARGIN_LEFT] - margins[Constants.MARGIN_RIGHT]);
+            plotAreaHeight = height * (1 - margins[Constants.MARGIN_UPPER] - margins[Constants.MARGIN_BOTTOM]);
         } catch (IOException | RequiredKeyNotFoundException exception) {
             System.out.println(exception.toString());
             System.exit(1);
@@ -187,59 +246,3 @@ class HistogramAxis {
     }
 }
 
-
-class HistogramRuler {
-    private double min;
-    private double max;
-    private double step;
-
-    HistogramRuler(JsonObject object) {
-        this.min = parseRequiredDouble(object, "min");
-        this.max = parseRequiredDouble(object, "max");
-        this.step = parseRequiredDouble(object, "step");
-    }
-
-    public double getMin() {
-        return min;
-    }
-
-    public double getMax() {
-        return max;
-    }
-
-    public double getStep() {
-        return step;
-    }
-}
-
-class HistogramData {
-    private String[] key;
-    private double[] value;
-
-    // Colors are described in hex, such as "#FFFFFF"
-    private String barBodyColor;
-    private String barBorderColor;
-
-    HistogramData(JsonObject object) {
-        this.key = parseRequiredStringArray(object, "key");
-        this.value = parseRequiredDoubleArray(object, "value");
-        this.barBodyColor = parseString(object, "barBodyColor", Constants.DEFAULT_BACKGROUND_COLOR);
-        this.barBorderColor = parseString(object, "barBorderColor", Constants.DEFAULT_FOREGROUND_COLOR);
-    }
-
-    public String[] getKey() {
-        return key;
-    }
-
-    public double[] getValue() {
-        return value;
-    }
-
-    public String getBarBodyColor() {
-        return barBodyColor;
-    }
-
-    public String getBarBorderColor() {
-        return barBorderColor;
-    }
-}
