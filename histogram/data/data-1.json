@@ -1,7 +1,7 @@
 {
   "type": "SimpleBarChart",
-  "width": 1024,
-  "height": 768,
+  "width": 1440,
+  "height": 960,
   "margins": [0.1, 0.1, 0.1, 0.1],
   "title": {
     "text": "Sample Bar Chart Title",
