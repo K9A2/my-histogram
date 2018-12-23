@@ -9,13 +9,13 @@
     "fontSize": 16,
     "fontStyle": "PLAIN"
   },
-  "xaxis": {
+  "xAxis": {
     "label": "Sample XLabel",
     "fontName": "Consolas",
     "fontSize": 16,
     "fontStyle": "PLAIN"
   },
-  "yaxis": {
+  "yAxis": {
     "label": "Sample YLabel",
     "fontName": "Consolas",
     "fontSize": 16,
@@ -23,14 +23,20 @@
   },
   "leftRuler": {
     "min": 0,
-    "max": 1000,
+    "max": 800,
     "step": 100
   },
   "hasRightRuler": false,
-  "data": {
+  "data": [{
     "key": ["2001", "2002", "2003", "2004", "2005"],
     "value": [100, 200, 300, 400, 500],
-    "barBodyColor": "#1f77b4",
-    "barBorderColor": "ff7f0e"
-  }
+    "barBackgroundColor": "#1f77b4",
+    "barBorderColor": "#1f77b4"
+  },
+  {
+    "key": ["2009", "2010", "2011", "2012", "2013"],
+    "value": [300, 400, 500, 600, 700],
+    "barBackgroundColor": "#2ca02c",
+    "barBorderColor": "#2ca02c"
+  }]
 }
