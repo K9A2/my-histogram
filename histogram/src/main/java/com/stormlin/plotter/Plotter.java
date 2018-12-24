@@ -1,9 +1,7 @@
 package main.java.com.stormlin.plotter;
 
 import main.java.com.stormlin.common.Constants;
-import main.java.com.stormlin.histogram.Histogram;
-import main.java.com.stormlin.histogram.HistogramTitle;
-import main.java.com.stormlin.histogram.HistogramYAxis;
+import main.java.com.stormlin.histogram.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -112,4 +110,27 @@ class Plotter extends JPanel {
         temp.drawString(label, labelX, labelY);
     }
 
+    void plotXAxisKeys(Histogram histogram, Graphics g) {
+        // Uses the keys of first group of data
+        HistogramData data = histogram.getHistogramDataList().get(0);
+        String[] keys = data.getKey();
+        HistogramXAxis xAxis = histogram.getXAxis();
+
+        Font xFont = new Font(xAxis.getFontName(), xAxis.getFontStyle(), xAxis.getFontSize());
+        FontMetrics metrics = g.getFontMetrics(xFont);
+
+        int barsPerGroup = 1;
+        int nGroups = data.getValue().length;
+        int spans = getSpans(nGroups, barsPerGroup);
+        int pointsPerSpan = (int) histogram.getPlotAreaWidth() / spans;
+        int keyX = (int) ((double) histogram.getCanvasWidth() * histogram.getMargins()[Constants.MARGIN_LEFT]);
+        int keyY = (int) (histogram.getCanvasHeight() * (1.0 - histogram.getMargins()[Constants.MARGIN_BOTTOM]));
+        for (int i = 0; i < nGroups; i++) {
+            keyX += pointsPerSpan;
+            int lineLength = metrics.stringWidth(keys[i]);
+            int lineHeight = metrics.getHeight();
+            g.drawString(keys[i], (int) (keyX + 0.25 * lineLength), (int) (keyY + 0.75 * lineHeight));
+            keyX += pointsPerSpan;
+        }
+    }
 }

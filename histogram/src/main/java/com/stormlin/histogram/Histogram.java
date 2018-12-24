@@ -2,6 +2,7 @@ package main.java.com.stormlin.histogram;
 
 import main.java.com.stormlin.common.Constants;
 import main.java.com.stormlin.common.RequiredKeyNotFoundException;
+import main.java.com.stormlin.plotter.GroupedBarChartPlotter;
 import main.java.com.stormlin.plotter.SimpleBarChartPlotter;
 
 import javax.json.*;
@@ -149,12 +150,15 @@ public class Histogram extends JFrame {
         Container container = getContentPane();
         switch (this.type) {
             case Constants.SIMPLE_BAR_CHART:
+                System.out.println("SimpleBarChart");
                 plotSimpleBarChart(container);
                 break;
             case Constants.GROUPED_BAR_CHART:
-                plotGroupedBarChart();
+                System.out.println("GroupedBarChart");
+                plotGroupedBarChart(container);
                 break;
             case Constants.STACKED_BAR_CHART:
+                System.out.println("StackedBarChart");
                 plotStackedBarChart();
                 break;
         }
@@ -167,8 +171,11 @@ public class Histogram extends JFrame {
         setupCanvas();
     }
 
-    private void plotGroupedBarChart() {
-
+    private void plotGroupedBarChart(Container container) {
+        GroupedBarChartPlotter plotter = new GroupedBarChartPlotter(this);
+        plotter.setPreferredSize(new Dimension(this.width, this.height));
+        container.add(plotter);
+        setupCanvas();
     }
 
     private void plotStackedBarChart() {
