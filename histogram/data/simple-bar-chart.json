@@ -24,10 +24,16 @@
   "leftRuler": {
     "min": 0,
     "max": 800,
-    "step": 100
+    "step": 200
   },
-  "hasRightRuler": false,
-  "data": [{
+  "hasRightRuler": true,
+  "rightRuler": {
+    "min": 0,
+    "max": 1000,
+    "step": 250
+  },
+  "data": [
+  {
     "key": ["2001", "2002", "2003", "2004", "2005"],
     "value": [100, 200, 300, 400, 500],
     "barBackgroundColor": "#1f77b4",
@@ -35,8 +41,9 @@
   },
   {
     "key": ["2009", "2010", "2011", "2012", "2013"],
-    "value": [300, 400, 500, 600, 700],
+    "value": [300, 200, 300, 200, 300],
     "barBackgroundColor": "#2ca02c",
     "barBorderColor": "#2ca02c"
-  }]
+  }
+  ]
 }

@@ -34,7 +34,7 @@ public class Histogram extends JFrame {
     private HistogramAxis xAxis;
     private HistogramAxis yAxis;
     private HistogramRuler leftRuler;
-    private HistogramRuler rightRuler;
+    private HistogramRuler rightRuler = null;
 
     private double plotAreaX;
     private double plotAreaY;

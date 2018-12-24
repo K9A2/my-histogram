@@ -20,4 +20,6 @@ public class Constants {
     public static final int MARGIN_LEFT = 2;
     public static final int MARGIN_RIGHT = 3;
 
+    public static final int DEFAULT_MARK_LINE_LENGTH = 5;
+
 }
