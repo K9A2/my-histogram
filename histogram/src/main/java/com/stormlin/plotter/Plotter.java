@@ -1,10 +1,9 @@
 package main.java.com.stormlin.plotter;
 
-import javafx.scene.transform.Affine;
 import main.java.com.stormlin.common.Constants;
 import main.java.com.stormlin.histogram.Histogram;
-import main.java.com.stormlin.histogram.HistogramYAxis;
 import main.java.com.stormlin.histogram.HistogramTitle;
+import main.java.com.stormlin.histogram.HistogramYAxis;
 
 import javax.swing.*;
 import java.awt.*;
@@ -64,10 +63,10 @@ class Plotter extends JPanel {
         plotYAxisLabel(g, rotateNegative90, leftAxis.getLabel(),
                 (int) (labelX - 0.5 * metrics.stringWidth(leftAxis.getLabel())), labelY);
 
+        /* Plot the right ruler */
         HistogramYAxis rightAxis;
         if (histogram.getyYAxisList().size() > 1) {
             rightAxis = histogram.getyYAxisList().get(1);
-            /* Plot the right ruler */
             coordinateX = (int) (histogram.getCanvasWidth() * (1 - histogram.getMargins()[Constants.MARGIN_RIGHT]));
             coordinateY = (int) (histogram.getCanvasHeight() * (1 - histogram.getMargins()[Constants.MARGIN_BOTTOM]));
             max = (int) rightAxis.getMax();
@@ -83,7 +82,7 @@ class Plotter extends JPanel {
                     maxLineLength = lineLength;
                 }
             }
-            // Draw the label for left YAxis
+            // Draw the label for right YAxis
             labelX = (int) (leftEdge + maxLineLength + 0.01 * histogram.getCanvasWidth());
             labelY = (int) (histogram.getCanvasHeight() * histogram.getMargins()[Constants.MARGIN_UPPER] +
                     histogram.getPlotAreaHeight() * 0.5);
