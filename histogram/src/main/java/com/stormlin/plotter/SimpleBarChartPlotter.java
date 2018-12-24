@@ -2,8 +2,8 @@ package main.java.com.stormlin.plotter;
 
 import main.java.com.stormlin.common.Constants;
 import main.java.com.stormlin.histogram.Histogram;
+import main.java.com.stormlin.histogram.HistogramYAxis;
 import main.java.com.stormlin.histogram.HistogramData;
-import main.java.com.stormlin.histogram.HistogramRuler;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -23,13 +23,16 @@ public class SimpleBarChartPlotter extends Plotter {
 
         plotBorder(histogram, g);
         plotBars(g);
-        plotRuler(histogram, g);
+        plotYAxis(histogram, g);
         plotTitle(histogram, g);
     }
 
     private void plotBars(Graphics g) {
-        HistogramRuler leftRuler = histogram.getLeftRuler();
-        HistogramRuler rightRuler = histogram.getRightRuler();
+        HistogramYAxis leftAxis = histogram.getyYAxisList().get(0);
+        HistogramYAxis rightAxis = null;
+        if (histogram.getyYAxisList().size() > 1) {
+            rightAxis = histogram.getyYAxisList().get(1);
+        }
 
         ArrayList<HistogramData> dataList = histogram.getHistogramDataList();
         HistogramData leftRulerData = dataList.get(0);
@@ -43,7 +46,7 @@ public class SimpleBarChartPlotter extends Plotter {
         int barStartX = (int) ((double) histogram.getCanvasWidth() * histogram.getMargins()[Constants.MARGIN_LEFT]);
         int barStartY = (int) (histogram.getCanvasHeight() * (1.0 - histogram.getMargins()[Constants.MARGIN_BOTTOM]));
 
-        boolean hasRightRuler = (histogram.getRightRuler() != null);
+        boolean hasRightRuler = (rightAxis != null);
         // Use this to store the X and Y coordinates for all bars
         double[][] barCoordinates = new double[nGroups][2];
 
@@ -51,7 +54,7 @@ public class SimpleBarChartPlotter extends Plotter {
         /* Plot the bars for left ruler */
         for (int i = 0; i < nGroups; i++) {
             barStartX += pointsPerSpan;
-            barHeight = (int) (leftRulerData.getValue()[i] * leftRuler.getPointsPerUnit());
+            barHeight = (int) (leftRulerData.getValue()[i] * leftAxis.getPointsPerUnit());
             g.setColor(leftRulerData.getBarBorderColor());
             // Draw the bar borders
             g.drawRect(barStartX, barStartY - barHeight, pointsPerSpan, barHeight);
@@ -72,8 +75,8 @@ public class SimpleBarChartPlotter extends Plotter {
             int pointStartHeight, pointEndHeight;
             int[][] markCoordinates = new int[nGroups][2];
             for (int i = 0; i < nGroups - 1; i++) {
-                pointStartHeight = (int) (rightRulerData.getValue()[i] * rightRuler.getPointsPerUnit());
-                pointEndHeight = (int) (rightRulerData.getValue()[i + 1] * rightRuler.getPointsPerUnit());
+                pointStartHeight = (int) (rightRulerData.getValue()[i] * rightAxis.getPointsPerUnit());
+                pointEndHeight = (int) (rightRulerData.getValue()[i + 1] * rightAxis.getPointsPerUnit());
                 pointStartX = (int) (barCoordinates[i][0] + 0.5 * pointsPerSpan);
                 pointStartY = barStartY - pointStartHeight;
                 pointEndX = (int) (barCoordinates[i + 1][0] + 0.5 * pointsPerSpan);

@@ -31,10 +31,8 @@ public class Histogram extends JFrame {
     // Basic components
     private HistogramTitle title;
     private ArrayList<HistogramData> histogramDataList;
-    private HistogramAxis xAxis;
-    private HistogramAxis yAxis;
-    private HistogramRuler leftRuler;
-    private HistogramRuler rightRuler = null;
+    private HistogramXAxis xAxis;
+    private ArrayList<HistogramYAxis> histogramYAxisList;
 
     private double plotAreaX;
     private double plotAreaY;
@@ -69,20 +67,12 @@ public class Histogram extends JFrame {
         return histogramDataList;
     }
 
-    public HistogramAxis getxAxis() {
+    public HistogramXAxis getXAxis() {
         return xAxis;
     }
 
-    public HistogramAxis getyAxis() {
-        return yAxis;
-    }
-
-    public HistogramRuler getLeftRuler() {
-        return leftRuler;
-    }
-
-    public HistogramRuler getRightRuler() {
-        return rightRuler;
+    public ArrayList<HistogramYAxis> getyYAxisList() {
+        return histogramYAxisList;
     }
 
     public double getPlotAreaX() {
@@ -128,8 +118,13 @@ public class Histogram extends JFrame {
                     convertColorToHexString(Constants.DEFAULT_FOREGROUND_COLOR)));
             backgroundColor = Color.decode(parseString(object, "backgroundColor",
                     convertColorToHexString(Constants.DEFAULT_BACKGROUND_COLOR)));
-            xAxis = new HistogramAxis(object.getJsonObject("xAxis"));
-            yAxis = new HistogramAxis(object.getJsonObject("yAxis"));
+            xAxis = new HistogramXAxis(object.getJsonObject("xAxis"));
+
+            JsonArray yAxisArray = getRequiredObjectArray(object, "yAxis");
+            histogramYAxisList = new ArrayList<>();
+            for (JsonValue value : yAxisArray) {
+                histogramYAxisList.add(new HistogramYAxis(value));
+            }
 
             /* Calculate parameters for plot area */
             plotAreaX = width * margins[Constants.MARGIN_LEFT];
@@ -138,11 +133,11 @@ public class Histogram extends JFrame {
             plotAreaHeight = height * (1 - margins[Constants.MARGIN_UPPER] - margins[Constants.MARGIN_BOTTOM]);
 
             /* Left ruler is mandatory, while right ruler is optional */
-            leftRuler = new HistogramRuler(getRequiredJsonObject(object, "leftRuler"));
-            leftRuler.setPointsPerUnit(getPlotAreaHeight() / (leftRuler.getMax() - leftRuler.getMin()));
-            if (parseRequiredBoolean(object, "hasRightRuler")) {
-                rightRuler = new HistogramRuler(getRequiredJsonObject(object, "rightRuler"));
-                rightRuler.setPointsPerUnit(getPlotAreaHeight() / (rightRuler.getMax() - rightRuler.getMin()));
+            HistogramYAxis leftAxis = histogramYAxisList.get(0);
+            histogramYAxisList.get(0).setPointsPerUnit(getPlotAreaHeight() / (leftAxis.getMax() - leftAxis.getMin()));
+            if (histogramYAxisList.size() > 1) {
+                HistogramYAxis rightAxis = histogramYAxisList.get(1);
+                rightAxis.setPointsPerUnit(getPlotAreaHeight() / (rightAxis.getMax() - rightAxis.getMin()));
             }
         } catch (IOException | RequiredKeyNotFoundException exception) {
             System.out.println(exception.toString());
