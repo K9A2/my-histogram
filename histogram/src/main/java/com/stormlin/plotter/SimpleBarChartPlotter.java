@@ -40,7 +40,6 @@ public class SimpleBarChartPlotter extends Plotter {
         int pointsPerSpan = (int) histogram.getPlotAreaWidth() / spans;
         int barStartX = (int) ((double) histogram.getCanvasWidth() * histogram.getMargins()[Constants.MARGIN_LEFT]);
         int barStartY = (int) (histogram.getCanvasHeight() * (1.0 - histogram.getMargins()[Constants.MARGIN_BOTTOM]));
-        double pointsPerUnitLeft = histogram.getPlotAreaHeight() / (leftRuler.getMax() - leftRuler.getMin());
 
         boolean hasRightRuler = (histogram.getRightRuler() != null);
         // Use this to store the X and Y coordinates for all bars
@@ -50,7 +49,7 @@ public class SimpleBarChartPlotter extends Plotter {
         /* Plot the bars for left ruler */
         for (int i = 0; i < nGroups; i++) {
             barStartX += pointsPerSpan;
-            barHeight = (int) (leftRulerData.getValue()[i] * pointsPerUnitLeft);
+            barHeight = (int) (leftRulerData.getValue()[i] * leftRuler.getPointsPerUnit());
             g.setColor(leftRulerData.getBarBorderColor());
             // Draw the bar borders
             g.drawRect(barStartX, barStartY - barHeight, pointsPerSpan, barHeight);
@@ -66,14 +65,13 @@ public class SimpleBarChartPlotter extends Plotter {
 
         /* Plot the line for right ruler */
         if (hasRightRuler) {
-            double pointsPerUnitRight = histogram.getPlotAreaHeight() / (rightRuler.getMax() - rightRuler.getMin());
             int pointStartX, pointStartY;
             int pointEndX, pointEndY;
             int pointStartHeight, pointEndHeight;
             int[][] markCoordinates = new int[nGroups][2];
             for (int i = 0; i < nGroups - 1; i++) {
-                pointStartHeight = (int) (rightRulerData.getValue()[i] * pointsPerUnitRight);
-                pointEndHeight = (int) (rightRulerData.getValue()[i + 1] * pointsPerUnitRight);
+                pointStartHeight = (int) (rightRulerData.getValue()[i] * rightRuler.getPointsPerUnit());
+                pointEndHeight = (int) (rightRulerData.getValue()[i + 1] * rightRuler.getPointsPerUnit());
                 pointStartX = (int) (barCoordinates[i][0] + 0.5 * pointsPerSpan);
                 pointStartY = barStartY - pointStartHeight;
                 pointEndX = (int) (barCoordinates[i + 1][0] + 0.5 * pointsPerSpan);

@@ -9,10 +9,12 @@ public class HistogramRuler {
     private double max;
     private double step;
 
+    private double pointsPerUnit;
+
     HistogramRuler(JsonObject object) {
-        this.min = parseRequiredDouble(object, "min");
-        this.max = parseRequiredDouble(object, "max");
-        this.step = parseRequiredDouble(object, "step");
+        min = parseRequiredDouble(object, "min");
+        max = parseRequiredDouble(object, "max");
+        step = parseRequiredDouble(object, "step");
     }
 
     public double getMin() {
@@ -25,5 +27,13 @@ public class HistogramRuler {
 
     public double getStep() {
         return step;
+    }
+
+    public double getPointsPerUnit() {
+        return pointsPerUnit;
+    }
+
+    void setPointsPerUnit(double pointsPerUnit) {
+        this.pointsPerUnit = pointsPerUnit;
     }
 }

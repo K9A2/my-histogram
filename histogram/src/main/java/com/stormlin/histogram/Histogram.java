@@ -131,17 +131,19 @@ public class Histogram extends JFrame {
             xAxis = new HistogramAxis(object.getJsonObject("xAxis"));
             yAxis = new HistogramAxis(object.getJsonObject("yAxis"));
 
-            /* Left ruler is mandatory, while right ruler is optional */
-            leftRuler = new HistogramRuler(getRequiredJsonObject(object, "leftRuler"));
-            if (parseRequiredBoolean(object, "hasRightRuler")) {
-                rightRuler = new HistogramRuler(getRequiredJsonObject(object, "rightRuler"));
-            }
-
             /* Calculate parameters for plot area */
             plotAreaX = width * margins[Constants.MARGIN_LEFT];
             plotAreaY = height * margins[Constants.MARGIN_UPPER];
             plotAreaWidth = width * (1 - margins[Constants.MARGIN_LEFT] - margins[Constants.MARGIN_RIGHT]);
             plotAreaHeight = height * (1 - margins[Constants.MARGIN_UPPER] - margins[Constants.MARGIN_BOTTOM]);
+
+            /* Left ruler is mandatory, while right ruler is optional */
+            leftRuler = new HistogramRuler(getRequiredJsonObject(object, "leftRuler"));
+            leftRuler.setPointsPerUnit(getPlotAreaHeight() / (leftRuler.getMax() - leftRuler.getMin()));
+            if (parseRequiredBoolean(object, "hasRightRuler")) {
+                rightRuler = new HistogramRuler(getRequiredJsonObject(object, "rightRuler"));
+                rightRuler.setPointsPerUnit(getPlotAreaHeight() / (rightRuler.getMax() - rightRuler.getMin()));
+            }
         } catch (IOException | RequiredKeyNotFoundException exception) {
             System.out.println(exception.toString());
             System.exit(1);
