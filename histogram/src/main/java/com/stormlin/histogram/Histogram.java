@@ -187,33 +187,3 @@ public class Histogram extends JFrame {
         setVisible(true);
     }
 }
-
-class HistogramTitle {
-    private String text;
-    private String font;
-    private int fontSize;
-    private String fontStyle;
-
-    HistogramTitle(JsonObject object) {
-        this.text = parseRequiredString(object, "text");
-        this.font = parseString(object, "font", Constants.DEFAULT_FONT_NAME);
-        this.fontSize = parseInt(object, "fontSize", Constants.DEFAULT_FONT_SIZE);
-        this.fontStyle = parseString(object, "fontStyle", Constants.DEFAULT_FONT_STYLE);
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public String getFont() {
-        return font;
-    }
-
-    public int getFontSize() {
-        return fontSize;
-    }
-
-    public String getFontStyle() {
-        return fontStyle;
-    }
-}

@@ -6,18 +6,18 @@ import javax.json.JsonObject;
 
 import static main.java.com.stormlin.common.Util.*;
 
-public class HistogramAxis extends HistogramFont {
-    private String label;
+public class HistogramTitle extends HistogramFont {
+    private String text;
 
-    HistogramAxis(JsonObject object) {
-        label = parseRequiredString(object, "label");
+    public HistogramTitle(JsonObject object) {
+        text = parseRequiredString(object, "text");
         fontName = parseString(object, "font", Constants.DEFAULT_FONT_NAME);
         fontSize = parseInt(object, "fontSize", Constants.DEFAULT_FONT_SIZE);
         fontStyle = parseString(object, "fontStyle", Constants.DEFAULT_FONT_STYLE);
     }
 
-    public String getLabel() {
-        return label;
+    public String getText() {
+        return text;
     }
 }
 
