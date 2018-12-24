@@ -12,25 +12,25 @@
   "xAxis": {
     "label": "Sample XLabel",
     "fontName": "Consolas",
-    "fontSize": 16,
+    "fontSize": 32,
     "fontStyle": "PLAIN"
   },
   "yAxis": {
     "label": "Sample YLabel",
     "fontName": "Consolas",
-    "fontSize": 16,
+    "fontSize": 32,
     "fontStyle": "PLAIN"
   },
   "leftRuler": {
     "min": 0,
     "max": 800,
-    "step": 200
+    "step": 100
   },
   "hasRightRuler": true,
   "rightRuler": {
     "min": 0,
     "max": 1000,
-    "step": 250
+    "step": 200 
   },
   "data": [
   {

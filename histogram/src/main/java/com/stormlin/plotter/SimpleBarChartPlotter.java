@@ -23,6 +23,7 @@ public class SimpleBarChartPlotter extends Plotter {
 
         plotBorder(histogram, g);
         plotBars(g);
+        plotRuler(histogram, g);
     }
 
     private void plotBars(Graphics g) {
