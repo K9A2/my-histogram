@@ -10,8 +10,6 @@ import java.util.ArrayList;
 
 public class GroupedBarChartPlotter extends Plotter {
 
-    private Histogram histogram;
-
     public GroupedBarChartPlotter(Histogram histogram) {
         this.histogram = histogram;
     }

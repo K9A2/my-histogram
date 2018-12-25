@@ -10,6 +10,8 @@ import java.util.ArrayList;
 
 class Plotter extends JPanel {
 
+    Histogram histogram;
+
     void plotBorder(Histogram histogram, Graphics g) {
         g.drawRect((int) histogram.getPlotAreaX(), (int) histogram.getPlotAreaY(), (int) histogram.getPlotAreaWidth(),
                 (int) histogram.getPlotAreaHeight());
