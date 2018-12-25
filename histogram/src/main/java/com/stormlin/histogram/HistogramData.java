@@ -8,11 +8,16 @@ import java.awt.*;
 import static main.java.com.stormlin.common.Util.*;
 
 public class HistogramData {
+    private String name;
     private String[] key;
     private double[] value;
 
     private Color barBackgroundColor;
     private Color barBorderColor;
+
+    public String getName() {
+        return name;
+    }
 
     public String[] getKey() {
         return key;
@@ -31,6 +36,7 @@ public class HistogramData {
     }
 
     HistogramData(JsonValue jsonValue) {
+        name = parseRequiredString(jsonValue.asJsonObject(), "name");
         key = parseRequiredStringArray(jsonValue.asJsonObject(), "key");
         value = parseRequiredDoubleArray(jsonValue.asJsonObject(), "value");
         barBackgroundColor = Color.decode(parseString(jsonValue.asJsonObject(), "barBackgroundColor",

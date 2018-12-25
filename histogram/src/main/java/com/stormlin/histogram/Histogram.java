@@ -35,6 +35,7 @@ public class Histogram extends JFrame {
     private ArrayList<HistogramData> histogramDataList;
     private HistogramXAxis xAxis;
     private ArrayList<HistogramYAxis> histogramYAxisList;
+    private HistogramLegend legend;
 
     private double plotAreaX;
     private double plotAreaY;
@@ -79,6 +80,10 @@ public class Histogram extends JFrame {
 
     public ArrayList<HistogramYAxis> getyYAxisList() {
         return histogramYAxisList;
+    }
+
+    public HistogramLegend getLegend() {
+        return legend;
     }
 
     public double getPlotAreaX() {
@@ -145,6 +150,9 @@ public class Histogram extends JFrame {
                 HistogramYAxis rightAxis = histogramYAxisList.get(1);
                 rightAxis.setPointsPerUnit(getPlotAreaHeight() / (rightAxis.getMax() - rightAxis.getMin()));
             }
+
+            /* The legend */
+            legend = new HistogramLegend(getOptionalJsonObject(object, "legend"));
         } catch (IOException | RequiredKeyNotFoundException exception) {
             System.out.println(exception.toString());
             System.exit(1);

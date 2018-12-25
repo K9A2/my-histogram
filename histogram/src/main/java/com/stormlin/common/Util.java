@@ -279,6 +279,13 @@ public class Util {
         return object.getJsonObject(key);
     }
 
+    public static JsonObject getOptionalJsonObject(JsonObject object, String key) {
+        if (!object.containsKey(key)) {
+            return null;
+        }
+        return object.getJsonObject(key);
+    }
+
     /**
      * Return an array of required field from input JSON object
      *

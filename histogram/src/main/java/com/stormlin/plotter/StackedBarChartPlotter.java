@@ -24,6 +24,7 @@ public class StackedBarChartPlotter extends Plotter {
         plotYAxis(histogram, g);
         plotTitle(histogram, g);
         plotXAxisKeys(histogram, g);
+        plotLegend(histogram, g);
     }
 
     private void plotBars(Graphics g) {

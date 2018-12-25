@@ -5,6 +5,8 @@ import main.java.com.stormlin.histogram.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.font.FontRenderContext;
+import java.awt.font.GlyphVector;
 import java.awt.geom.AffineTransform;
 import java.util.ArrayList;
 
@@ -142,5 +144,71 @@ class Plotter extends JPanel {
             g.drawString(keys[i], (int) (groupCenterX - 0.5 * stringLength), (int) (keyY + 0.75 * stringHeight));
             keyX += groupWidth;
         }
+    }
+
+    void plotLegend(Histogram histogram, Graphics g) {
+        HistogramLegend legend = histogram.getLegend();
+        ArrayList<HistogramData> dataList = histogram.getHistogramDataList();
+
+        Font legendFont = new Font(legend.getFontName(), legend.getFontStyle(), legend.getFontSize());
+        FontMetrics metrics = g.getFontMetrics();
+
+        String[] names = new String[dataList.size()];
+        int[] maxWidthAndHeight = new int[2];
+        final int WIDTH = 0;
+        final int HEIGHT = 1;
+        for (int i = 0; i < dataList.size(); i++) {
+            names[i] = dataList.get(i).getName();
+        }
+        getMaxStringWidthAndHeight(names, g, maxWidthAndHeight);
+
+        int plotAreaLeftUpperX = (int) (histogram.getCanvasWidth() * histogram.getMargins()[Constants.MARGIN_LEFT]);
+        int plotAreaLeftUpperY = (int) (histogram.getCanvasHeight() * histogram.getMargins()[Constants.MARGIN_UPPER]);
+
+        int margin = (int) (plotAreaLeftUpperX * 0.1);
+
+        int legendX = plotAreaLeftUpperX + margin;
+        int legendY = plotAreaLeftUpperY + margin;
+        int lineSpacing = (int) (0.75 * maxWidthAndHeight[HEIGHT]);
+
+        int legendWidth = margin + (int) (0.5 * maxWidthAndHeight[WIDTH]) + margin + maxWidthAndHeight[WIDTH] + margin;
+        int legendHeight = 2 * margin + maxWidthAndHeight[HEIGHT] * dataList.size() + lineSpacing * (dataList.size() - 1);
+
+        /* Draw the border of this legend */
+        g.drawRect(legendX, legendY, legendWidth, legendHeight);
+
+        /* Draw the colors and labels */
+        int itemX = legendX + margin;
+        int itemY = legendY + margin;
+        for (HistogramData data : dataList) {
+            g.setColor(data.getBarBackgroundColor());
+            g.fillRect(itemX, itemY, (int) (maxWidthAndHeight[WIDTH] * 0.5), maxWidthAndHeight[1]);
+            drawStringAt(data.getName(), itemX + (int) (maxWidthAndHeight[WIDTH] * 0.5) + margin, itemY, g, metrics,
+                    maxWidthAndHeight[HEIGHT]);
+            itemY += (maxWidthAndHeight[1] + lineSpacing);
+        }
+    }
+
+    private void getMaxStringWidthAndHeight(String[] names, Graphics g, int[] maxValues) {
+        Graphics2D g2d = (Graphics2D) g.create();
+        FontRenderContext context = g2d.getFontRenderContext();
+        GlyphVector vector;
+        Rectangle bounds;
+        for (String name : names) {
+            vector = g2d.getFont().createGlyphVector(context, name);
+            bounds = vector.getPixelBounds(null, 0, 0);
+            if (bounds.getWidth() > maxValues[0]) {
+                maxValues[0] = (int) bounds.getWidth();
+            }
+            if (bounds.getHeight() > maxValues[1]) {
+                maxValues[1] = (int) bounds.getHeight();
+            }
+        }
+    }
+
+    private void drawStringAt(String text, int x, int y, Graphics g, FontMetrics metrics, int maxLineHeight) {
+        Graphics2D g2d = (Graphics2D) g.create();
+        g2d.setColor(Color.BLACK);
+        g2d.drawString(text, x, y + metrics.getAscent() - metrics.getDescent() - metrics.getLeading() + (int) (0.25 * maxLineHeight));
     }
 }

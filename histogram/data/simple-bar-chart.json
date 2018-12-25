@@ -37,12 +37,14 @@
   ],
   "data": [
     {
+      "name": "sample_1",
       "key": ["2001", "2002", "2003", "2004", "2005"],
       "value": [100, 200, 300, 400, 500],
       "barBackgroundColor": "#1f77b4",
       "barBorderColor": "#1f77b4"
     },
     {
+      "name": "sample_2",
       "key": ["2009", "2010", "2011", "2012", "2013"],
       "value": [300, 200, 300, 200, 300],
       "barBackgroundColor": "#2ca02c",
