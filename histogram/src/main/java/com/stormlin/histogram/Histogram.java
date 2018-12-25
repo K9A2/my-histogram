@@ -40,6 +40,10 @@ public class Histogram extends JFrame {
     private double plotAreaWidth;
     private double plotAreaHeight;
 
+    public String getHistogramType() {
+        return this.type;
+    }
+
     public int getCanvasWidth() {
         return this.width;
     }
