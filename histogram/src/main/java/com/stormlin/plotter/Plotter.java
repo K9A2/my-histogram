@@ -32,6 +32,7 @@ class Plotter extends JPanel {
         Font fontLeft = new Font(leftAxis.getFontName(), leftAxis.getFontStyle(), leftAxis.getFontSize());
         FontMetrics metrics = g.getFontMetrics(fontLeft);
         g.setFont(fontLeft);
+        g.setColor(Constants.DEFAULT_FOREGROUND_COLOR);
 
         int coordinateX = (int) (histogram.getCanvasWidth() * histogram.getMargins()[Constants.MARGIN_LEFT]);
         int coordinateY = (int) (histogram.getCanvasHeight() * (1 - histogram.getMargins()[Constants.MARGIN_BOTTOM]));
