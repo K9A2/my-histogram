@@ -41,6 +41,9 @@
     }
   ],
   "legend": {
-    "position": "upper left"
+    "position": "upper left",
+    "fontName": "Consolas",
+    "fontSize": 32,
+    "fontStyle":"PLAIN"
   }
 }
