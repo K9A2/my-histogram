@@ -4,6 +4,7 @@ import main.java.com.stormlin.common.Constants;
 import main.java.com.stormlin.common.RequiredKeyNotFoundException;
 import main.java.com.stormlin.plotter.GroupedBarChartPlotter;
 import main.java.com.stormlin.plotter.SimpleBarChartPlotter;
+import main.java.com.stormlin.plotter.StackedBarChartPlotter;
 
 import javax.json.*;
 import javax.swing.*;
@@ -163,7 +164,7 @@ public class Histogram extends JFrame {
                 break;
             case Constants.STACKED_BAR_CHART:
                 System.out.println("StackedBarChart");
-                plotStackedBarChart();
+                plotStackedBarChart(container);
                 break;
         }
     }
@@ -182,8 +183,11 @@ public class Histogram extends JFrame {
         setupCanvas();
     }
 
-    private void plotStackedBarChart() {
-
+    private void plotStackedBarChart(Container container) {
+        StackedBarChartPlotter plotter = new StackedBarChartPlotter(this);
+        plotter.setPreferredSize(new Dimension(this.width, this.height));
+        container.add(plotter);
+        setupCanvas();
     }
 
     private void setupCanvas() {
