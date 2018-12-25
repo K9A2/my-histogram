@@ -2,9 +2,8 @@ package main.java.com.stormlin.plotter;
 
 import main.java.com.stormlin.common.Constants;
 import main.java.com.stormlin.histogram.Histogram;
-import main.java.com.stormlin.histogram.HistogramXAxis;
-import main.java.com.stormlin.histogram.HistogramYAxis;
 import main.java.com.stormlin.histogram.HistogramData;
+import main.java.com.stormlin.histogram.HistogramYAxis;
 
 import java.awt.*;
 import java.util.ArrayList;
