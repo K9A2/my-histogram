@@ -136,14 +136,33 @@ class Plotter extends JPanel {
         int keyX = (int) ((double) histogram.getCanvasWidth() * histogram.getMargins()[Constants.MARGIN_LEFT]);
         int keyY = (int) (histogram.getCanvasHeight() * (1.0 - histogram.getMargins()[Constants.MARGIN_BOTTOM]));
         int groupWidth = pointsPerSpan * barsPerGroup;
+
+        /* Plot keys */
+        int stringLength;
+        int stringHeight = 0;
+        int groupCenterX;
         for (int i = 0; i < nGroups; i++) {
             keyX += pointsPerSpan;
-            int stringLength = metrics.stringWidth(keys[i]);
-            int stringHeight = metrics.getHeight();
-            int groupCenterX = (int) (keyX + 0.5 * groupWidth);
+            stringLength = metrics.stringWidth(keys[i]);
+            stringHeight = metrics.getHeight();
+            groupCenterX = (int) (keyX + 0.5 * groupWidth);
             g.drawString(keys[i], (int) (groupCenterX - 0.5 * stringLength), (int) (keyY + 0.75 * stringHeight));
             keyX += groupWidth;
         }
+
+        /* Draw XAxis label */
+        Font labelFont = new Font(xAxis.getFontName(), xAxis.getFontStyle(), xAxis.getFontSize());
+        metrics = g.getFontMetrics(labelFont);
+        g.setFont(labelFont);
+
+        int coordinateX = (int) (histogram.getCanvasWidth() * 0.5);
+        int coordinateY = (int) ((histogram.getCanvasHeight() +
+                histogram.getCanvasHeight() * (1 - histogram.getMargins()[Constants.MARGIN_BOTTOM])) * 0.5) +
+                (int) (0.5 * stringHeight);
+        // Align center for default
+        int titleLength = metrics.stringWidth(xAxis.getLabel());
+
+        g.drawString(xAxis.getLabel(), (int) (coordinateX - 0.5 * titleLength), coordinateY);
     }
 
     void plotLegend(Histogram histogram, Graphics g) {

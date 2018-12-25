@@ -17,7 +17,7 @@ public class HistogramXAxis extends HistogramFont {
         fontStyle = parseString(object, "fontStyle", Constants.DEFAULT_FONT_STYLE);
     }
 
-    public void setLabel(String label) {
-        this.label = label;
+    public String getLabel() {
+        return label;
     }
 }
