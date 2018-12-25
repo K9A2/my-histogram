@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class GroupedBarChartPlotter extends Plotter {
 
     public GroupedBarChartPlotter(Histogram histogram) {
-        this.histogram = histogram;
+        super(histogram);
     }
 
     @Override

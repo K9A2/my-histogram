@@ -12,6 +12,10 @@ class Plotter extends JPanel {
 
     Histogram histogram;
 
+    Plotter(Histogram histogram) {
+        this.histogram = histogram;
+    }
+
     void plotBorder(Histogram histogram, Graphics g) {
         g.drawRect((int) histogram.getPlotAreaX(), (int) histogram.getPlotAreaY(), (int) histogram.getPlotAreaWidth(),
                 (int) histogram.getPlotAreaHeight());

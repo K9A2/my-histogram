@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class SimpleBarChartPlotter extends Plotter {
 
     public SimpleBarChartPlotter(Histogram histogram) {
-        this.histogram = histogram;
+        super(histogram);
     }
 
     @Override
