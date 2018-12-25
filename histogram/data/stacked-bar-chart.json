@@ -39,5 +39,8 @@
       "barBackgroundColor": "#2ca02c",
       "barBorderColor": "#2ca02c"
     }
-  ]
+  ],
+  "legend": {
+    "position": "upper left"
+  }
 }
