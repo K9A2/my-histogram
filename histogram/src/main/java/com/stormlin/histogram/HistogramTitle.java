@@ -11,7 +11,7 @@ public class HistogramTitle extends HistogramFont {
 
     public HistogramTitle(JsonObject object) {
         text = parseRequiredString(object, "text");
-        fontName = parseString(object, "font", Constants.DEFAULT_FONT_NAME);
+        fontName = parseString(object, "fontName", Constants.DEFAULT_FONT_NAME);
         fontSize = parseInt(object, "fontSize", Constants.DEFAULT_FONT_SIZE);
         fontStyle = parseString(object, "fontStyle", Constants.DEFAULT_FONT_STYLE);
     }
