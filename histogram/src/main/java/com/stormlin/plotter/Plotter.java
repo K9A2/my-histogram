@@ -105,6 +105,7 @@ class Plotter extends JPanel {
         Font titleFont = new Font(title.getFontName(), title.getFontStyle(), title.getFontSize());
         FontMetrics metrics = g.getFontMetrics(titleFont);
         g.setFont(titleFont);
+        g.setColor(Color.BLACK);
 
         int coordinateX = (int) (histogram.getCanvasWidth() * 0.5);
         int coordinateY = (int) (histogram.getCanvasHeight() * histogram.getMargins()[Constants.MARGIN_UPPER] * 0.5);
@@ -172,6 +173,7 @@ class Plotter extends JPanel {
 
         Font legendFont = new Font(legend.getFontName(), legend.getFontStyle(), legend.getFontSize());
         FontMetrics metrics = g.getFontMetrics();
+        g.setFont(legendFont);
 
         String[] names = new String[dataList.size()];
         int[] maxWidthAndHeight = new int[2];

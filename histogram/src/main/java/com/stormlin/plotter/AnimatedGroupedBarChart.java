@@ -22,6 +22,8 @@ public class AnimatedGroupedBarChart extends Plotter {
         setBackground(histogram.getBackgroundColor());
 
         switch (clock) {
+            case 5:
+                plotLegend(histogram, g);
             case 4:
                 plotTitle(histogram, g);
             case 3:

@@ -219,7 +219,7 @@ public class Histogram extends JFrame {
                 plotter.nextFrame();
                 clock++;
                 System.out.println(clock);
-                if (clock == 4) {
+                if (clock == 5) {
                     ((Timer) e.getSource()).stop();
                 }
             }
