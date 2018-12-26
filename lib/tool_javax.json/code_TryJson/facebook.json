@@ -1,7 +1,0 @@
-{
-"data" : [
-         { "from" : { "name" : "Adam" }, "message" : "The first Mesage"  },
-         { "from" : { "name" : "Bob"  }, "message" : "The Second Message" }
-]
-}
-
