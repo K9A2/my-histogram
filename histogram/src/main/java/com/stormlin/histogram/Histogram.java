@@ -2,6 +2,7 @@ package main.java.com.stormlin.histogram;
 
 import main.java.com.stormlin.common.Constants;
 import main.java.com.stormlin.common.RequiredKeyNotFoundException;
+import main.java.com.stormlin.plotter.AnimatedGroupedBarChart;
 import main.java.com.stormlin.plotter.GroupedBarChartPlotter;
 import main.java.com.stormlin.plotter.SimpleBarChartPlotter;
 import main.java.com.stormlin.plotter.StackedBarChartPlotter;
@@ -9,6 +10,8 @@ import main.java.com.stormlin.plotter.StackedBarChartPlotter;
 import javax.json.*;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -174,6 +177,9 @@ public class Histogram extends JFrame {
                 System.out.println("StackedBarChart");
                 plotStackedBarChart(container);
                 break;
+            case Constants.ANIMATED_GROUPED_BAR_CHART:
+                System.out.println("AnimatedGroupedBarChart");
+                plotAnimatedGroupedBarChart(container);
         }
     }
 
@@ -196,6 +202,30 @@ public class Histogram extends JFrame {
         plotter.setPreferredSize(new Dimension(this.width, this.height));
         container.add(plotter);
         setupCanvas();
+    }
+
+    private void plotAnimatedGroupedBarChart(Container container) {
+        AnimatedGroupedBarChart plotter = new AnimatedGroupedBarChart(this);
+        plotter.setPreferredSize(new Dimension(this.width, this.height));
+        container.add(plotter);
+        setupCanvas();
+
+        Timer animationTimer = new Timer(500, new ActionListener() {
+            private int clock = 0;
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                plotter.repaint();
+                plotter.nextFrame();
+                clock++;
+                System.out.println(clock);
+                if (clock == 4) {
+                    ((Timer) e.getSource()).stop();
+                }
+            }
+        });
+        animationTimer.setRepeats(true);
+        animationTimer.start();
     }
 
     private void setupCanvas() {
