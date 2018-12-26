@@ -23,7 +23,7 @@ public class SimpleBarChartPlotter extends Plotter {
         plotBars(g);
         plotYAxis(histogram, g);
         plotTitle(histogram, g);
-        plotXAxisKeys(histogram, g);
+        plotXAxis(histogram, g);
         plotLegend(histogram, g);
     }
 

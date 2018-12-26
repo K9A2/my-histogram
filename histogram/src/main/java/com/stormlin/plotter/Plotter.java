@@ -19,6 +19,7 @@ class Plotter extends JPanel {
     }
 
     void plotBorder(Histogram histogram, Graphics g) {
+        g.setColor(Color.BLACK);
         g.drawRect((int) histogram.getPlotAreaX(), (int) histogram.getPlotAreaY(), (int) histogram.getPlotAreaWidth(),
                 (int) histogram.getPlotAreaHeight());
     }
@@ -119,7 +120,7 @@ class Plotter extends JPanel {
         temp.drawString(label, labelX, labelY);
     }
 
-    void plotXAxisKeys(Histogram histogram, Graphics g) {
+    void plotXAxis(Histogram histogram, Graphics g) {
         // Uses the keys of first group of data
         HistogramData dataWithKey = histogram.getHistogramDataList().get(0);
         String[] keys = dataWithKey.getKey();
@@ -127,6 +128,8 @@ class Plotter extends JPanel {
 
         Font xFont = new Font(xAxis.getFontName(), xAxis.getFontStyle(), xAxis.getFontSize());
         FontMetrics metrics = g.getFontMetrics(xFont);
+        g.setColor(Color.BLACK);
+        g.setFont(xFont);
 
         int barsPerGroup = (histogram.getHistogramType().equals("GroupedBarChart")) ?
                 histogram.getHistogramDataList().size() : 1;
@@ -151,9 +154,7 @@ class Plotter extends JPanel {
         }
 
         /* Draw XAxis label */
-        Font labelFont = new Font(xAxis.getFontName(), xAxis.getFontStyle(), xAxis.getFontSize());
-        metrics = g.getFontMetrics(labelFont);
-        g.setFont(labelFont);
+        metrics = g.getFontMetrics(xFont);
 
         int coordinateX = (int) (histogram.getCanvasWidth() * 0.5);
         int coordinateY = (int) ((histogram.getCanvasHeight() +

@@ -2,8 +2,8 @@ package main.java.com.stormlin.plotter;
 
 import main.java.com.stormlin.common.Constants;
 import main.java.com.stormlin.histogram.Histogram;
-import main.java.com.stormlin.histogram.HistogramYAxis;
 import main.java.com.stormlin.histogram.HistogramData;
+import main.java.com.stormlin.histogram.HistogramYAxis;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -14,17 +14,15 @@ public class GroupedBarChartPlotter extends Plotter {
         super(histogram);
     }
 
-    @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         setBackground(histogram.getBackgroundColor());
 
         plotBorder(histogram, g);
         plotBars(g);
+        plotXAxis(histogram, g);
         plotYAxis(histogram, g);
         plotTitle(histogram, g);
-        plotXAxisKeys(histogram, g);
-        plotLegend(histogram, g);
     }
 
     public void plotBars(Graphics g) {
