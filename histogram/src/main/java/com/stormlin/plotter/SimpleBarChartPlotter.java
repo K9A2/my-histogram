@@ -70,6 +70,10 @@ public class SimpleBarChartPlotter extends Plotter {
 
         /* Plot the line for right ruler */
         if (hasRightRuler) {
+            Graphics2D g2d = (Graphics2D) g.create();
+            g2d.setStroke(new BasicStroke(3));
+            g2d.setColor(rightRulerData.getBarBackgroundColor());
+
             int pointStartX, pointStartY;
             int pointEndX, pointEndY;
             int pointStartHeight, pointEndHeight;
@@ -88,13 +92,12 @@ public class SimpleBarChartPlotter extends Plotter {
                 markCoordinates[i + 1][0] = pointEndX;
                 markCoordinates[i + 1][1] = pointEndY;
 
-                g.setColor(Color.BLACK);
-                g.drawLine(pointStartX, pointStartY, pointEndX, pointEndY);
+                g2d.drawLine(pointStartX, pointStartY, pointEndX, pointEndY);
             }
             for (int[] coordinate : markCoordinates) {
-                plotLineMark(coordinate[0], coordinate[1], Constants.DEFAULT_MARK_LINE_LENGTH, g);
+                plotLineMark(coordinate[0], coordinate[1], 10, g2d);
             }
-            g.setColor(Constants.DEFAULT_FOREGROUND_COLOR);
+            g2d.setColor(Constants.DEFAULT_FOREGROUND_COLOR);
         }
     }
 

@@ -4,56 +4,56 @@
   "height": 960,
   "margins": [0.1, 0.1, 0.1, 0.1],
   "title": {
-    "text": "Sample Bar Chart Title",
-    "fontName": "Consolas",
+    "text": "图10 2013-2017年全部工业增加值及其增长速度",
+    "fontName": "微软雅黑",
     "fontSize": 32,
-    "fontStyle": "PLAIN"
+    "fontStyle": "BOLD"
   },
   "xAxis": {
-    "label": "Sample XLabel",
-    "fontName": "Consolas",
+    "label": "年份",
+    "fontName": "微软雅黑",
     "fontSize": 32,
-    "fontStyle": "PLAIN"
+    "fontStyle": "BOLD"
   },
   "yAxis": [
     {
       "min": 0,
-      "max": 600,
-      "step": 100,
-      "label": "Label for left yAxis",
-      "fontName": "Consolas",
+      "max": 3500,
+      "step": 500,
+      "label": "工业增加值 (单位: 百亿)",
+      "fontName": "微软雅黑",
       "fontSize": 32,
-      "fontStyle": "PLAIN"
+      "fontStyle": "BOLD"
     },
     {
       "min": 0,
-      "max": 400,
-      "step": 100,
-      "label": "Label for right yAxis",
-      "fontName": "Consolas",
+      "max": 12,
+      "step": 2,
+      "label": "比上年增长 (%)",
+      "fontName": "微软雅黑",
       "fontSize": 32,
-      "fontStyle": "PLAIN"
+      "fontStyle": "BOLD"
     }
   ],
   "data": [
     {
-      "name": "sample_1",
-      "key": ["2001", "2002", "2003", "2004", "2005"],
-      "value": [100, 200, 300, 400, 500],
-      "barBackgroundColor": "#1f77b4",
-      "barBorderColor": "#1f77b4"
+      "name": "工业增加值 (单位: 百亿)",
+      "key": ["2013", "2014", "2015", "2016", "2017"],
+      "value": [2223, 2338, 2365, 2478, 2799],
+      "barBackgroundColor": "#F17C67",
+      "barBorderColor": "#F17C67"
     },
     {
-      "name": "sample_2",
+      "name": "比上年增加 (%)",
       "key": ["2009", "2010", "2011", "2012", "2013"],
-      "value": [300, 200, 300, 200, 300],
-      "barBackgroundColor": "#2ca02c",
-      "barBorderColor": "#2ca02c"
+      "value": [7.7, 7.0, 6.0, 6.0, 6.4],
+      "barBackgroundColor": "#82A6F5",
+      "barBorderColor": "#82A6F5"
     }
   ],
   "legend": {
     "position": "upper left",
-    "fontName": "Consolas",
+    "fontName": "微软雅黑",
     "fontSize": 32,
     "fontStyle": "PLAIN"
   }
