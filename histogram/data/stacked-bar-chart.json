@@ -4,48 +4,48 @@
   "height": 960,
   "margins": [0.1, 0.1, 0.1, 0.1],
   "title": {
-    "text": "Sample Bar Chart Title",
-    "fontName": "Consolas",
+    "text": "图15 2013-2017年货物进出口总额",
+    "fontName": "微软雅黑",
     "fontSize": 32,
-    "fontStyle": "PLAIN"
+    "fontStyle": "BOLD"
   },
   "xAxis": {
-    "label": "Sample XLabel",
-    "fontName": "Consolas",
+    "label": "年份",
+    "fontName": "微软雅黑",
     "fontSize": 32,
-    "fontStyle": "PLAIN"
+    "fontStyle": "BOLD"
   },
   "yAxis": [
     {
       "min": 0,
-      "max": 900,
-      "step": 150,
-      "label": "Label for left yAxis",
-      "fontName": "Consolas",
+      "max": 350,
+      "step": 50,
+      "label": "进出口额 (单位: 百亿元)",
+      "fontName": "微软雅黑",
       "fontSize": 32,
-      "fontStyle": "PLAIN"
+      "fontStyle": "BOLD"
     }
   ],
   "data": [
     {
-      "name": "China",
-      "key": ["2001", "2002", "2003", "2004", "2005"],
-      "value": [100, 200, 300, 400, 500],
-      "barBackgroundColor": "#1f77b4",
-      "barBorderColor": "#1f77b4"
+      "name": "货物出口额",
+      "key": ["2013", "2014", "2015", "2016", "2017"],
+      "value": [137, 143, 141, 138, 153],
+      "barBackgroundColor": "#F17C67",
+      "barBorderColor": "#F17C67"
     },
     {
-      "name": "US",
+      "name": "货物进口额",
       "key": ["2009", "2010", "2011", "2012", "2013"],
-      "value": [300, 200, 300, 200, 300],
-      "barBackgroundColor": "#2ca02c",
-      "barBorderColor": "#2ca02c"
+      "value": [121, 120, 104, 104, 124],
+      "barBackgroundColor": "#82A6F5",
+      "barBorderColor": "#82A6F5"
     }
   ],
   "legend": {
     "position": "upper left",
-    "fontName":"Consolas",
+    "fontName":"微软雅黑",
     "fontSize": 32,
-    "fontStyle": "PLAIN"
+    "fontStyle": "BOLD"
   }
 }
