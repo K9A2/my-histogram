@@ -4,48 +4,48 @@
   "height": 960,
   "margins": [0.1, 0.1, 0.1, 0.1],
   "title": {
-    "text": "图17 2013-2017年年末固定互联网开宽带接入用户和移动宽带用户",
-    "fontName": "微软雅黑",
+    "text": "Sample Bar Chart Title",
+    "fontName": "Consolas",
     "fontSize": 32,
-    "fontStyle": "BOLD"
+    "fontStyle": "PLAIN"
   },
   "xAxis": {
-    "label": "年份",
-    "fontName": "微软雅黑",
+    "label": "Sample XLabel",
+    "fontName": "Consolas",
     "fontSize": 32,
-    "fontStyle": "BOLD"
+    "fontStyle": "PLAIN"
   },
   "yAxis": [
     {
       "min": 0,
-      "max": 140,
-      "step": 20,
-      "label": "用户数 (单位: 千万户)",
-      "fontName": "微软雅黑",
+      "max": 600,
+      "step": 100,
+      "label": "Label for left yAxis",
+      "fontName": "Consolas",
       "fontSize": 32,
-      "fontStyle": "BOLD"
+      "fontStyle": "PLAIN"
     }
   ],
   "data": [
     {
-      "name": "固定互联网宽带接入用户",
-      "key": ["2013", "2014", "2015", "2016", "2017"],
-      "value": [18, 20, 25, 29, 34],
-      "barBackgroundColor": "#F17C67",
-      "barBorderColor": "#F17C67"
+      "name": "US",
+      "key": ["2001", "2002", "2003", "2004", "2005"],
+      "value": [100, 200, 300, 400, 500],
+      "barBackgroundColor": "#1f77b4",
+      "barBorderColor": "#1f77b4"
     },
     {
-      "name": "移动宽带用户",
+      "name": "China",
       "key": ["2009", "2010", "2011", "2012", "2013"],
-      "value": [40, 58, 70, 94, 113],
-      "barBackgroundColor": "#82A6F5",
-      "barBorderColor": "#82A6F5"
+      "value": [300, 200, 300, 200, 300],
+      "barBackgroundColor": "#2ca02c",
+      "barBorderColor": "#2ca02c"
     }
   ],
   "legend": {
     "position": "upper left",
-    "fontName": "微软雅黑",
+    "fontName": "Consolas",
     "fontSize": 32,
-    "fontStyle":"BOLD"
+    "fontStyle":"PLAIN"
   }
 }
