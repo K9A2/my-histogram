@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="javax.json-1.1.4">
-    <CLASSES />
-    <JAVADOC />
-    <SOURCES>
-      <root url="file://$PROJECT_DIR$/lib/tool_javax.json/code_TryJson" />
-    </SOURCES>
-  </library>
-</component>

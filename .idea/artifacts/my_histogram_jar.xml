@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="my-histogram:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/my_histogram_jar</output-path>
+    <root id="archive" name="my-histogram.jar">
+      <element id="module-output" name="my-histogram" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/tool_javax.json/code_TryJson/javax.json-1.1.4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/javax.json-1.1.4.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

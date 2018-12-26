@@ -9,7 +9,6 @@ public class AnimatedGroupedBarChart extends Plotter {
     private int clock = 0;
 
     public void nextFrame() {
-        System.out.println(clock);
         clock++;
     }
 

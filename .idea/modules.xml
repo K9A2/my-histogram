@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/TaskA_HistogramA/TaskA_HistogramA.iml" filepath="$PROJECT_DIR$/TaskA_HistogramA/TaskA_HistogramA.iml" />
-      <module fileurl="file://$PROJECT_DIR$/histogram/histogram.iml" filepath="$PROJECT_DIR$/histogram/histogram.iml" />
+      <module fileurl="file://$PROJECT_DIR$/my-histogram.iml" filepath="$PROJECT_DIR$/my-histogram.iml" />
     </modules>
   </component>
 </project>

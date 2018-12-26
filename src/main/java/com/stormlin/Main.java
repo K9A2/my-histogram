@@ -1,3 +1,5 @@
+package main.java.com.stormlin;
+
 import main.java.com.stormlin.histogram.Histogram;
 
 import javax.swing.*;
