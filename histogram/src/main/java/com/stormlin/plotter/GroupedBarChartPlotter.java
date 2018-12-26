@@ -23,6 +23,7 @@ public class GroupedBarChartPlotter extends Plotter {
         plotXAxis(histogram, g);
         plotYAxis(histogram, g);
         plotTitle(histogram, g);
+        plotLegend(histogram, g);
     }
 
     public void plotBars(Graphics g) {
